@@ -20,3 +20,5 @@ router.delete('/user/:id', passport.authenticate('jwt'), (req, res) => {
     .then(() => res.sendStatus(200))
     .catch(err => res.json(err))
 })
+
+module.exports = router
