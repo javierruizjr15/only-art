@@ -20,6 +20,8 @@ router.post('/posts', passport.authenticate('jwt'), (req, res) => {
     category: req.body.category,
     price: req.body.price
   })
+
+   
     .then(post => {
       User.findByIdAndUpdate(req.user._id, { $push: { posts: post._id } })
         .then(() => {
