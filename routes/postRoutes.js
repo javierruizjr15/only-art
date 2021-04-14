@@ -3,12 +3,14 @@ const { Post, User } = require('../models')
 const passport = require('passport')
 const reactDom = require('react-dom')
 
+//find all posts
 router.get('/posts', passport.authenticate('jwt'), (req, res) => {
   Post.find({})
     .then(posts => res.json(posts))
     .catch(err => console.log(err))
 })
 
+//creating posts and pushing post into user's array of posts
 router.post('/posts', passport.authenticate('jwt'), (req, res) => {
   Post.create({
     artist: req.user._id,
@@ -34,5 +36,25 @@ router.post('/posts', passport.authenticate('jwt'), (req, res) => {
     })
     .catch(err => console.log(err))
 })
+
+//update posts
+router.put('/posts/:id',(req,res)=>{
+  Post.findByIdAndUpdate(req.params.id,req.body)
+  .then(()=>res.sendStatus(200))
+  .catch(err=>console.log(err))
+})
+
+//delete request with ID
+router.delete('/post/:id', passport.authenticate('jwt'),(req,res)=>{
+  Post.findByIdAndDelete(req.params.id)
+  .then(()=>res.sendStatus(200))
+  .catch(err=>res.json(err))
+})
+
+
+//router.get()
+
+
+
 
 module.exports = router
