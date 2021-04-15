@@ -3,6 +3,7 @@ const { User } = require('../models')
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
 
+// register user
 router.post('/users/register', (req, res) => {
   const { name, email, username } = req.body
   User.register(new User({ name, email, username }), req.body.password, err => {
@@ -11,7 +12,7 @@ router.post('/users/register', (req, res) => {
   })
 })
 
-
+// login user
 router.post('/users/login', (req, res) => {
   User.authenticate()(req.body.username, req.body.password, (err, user) => {
     if (err) { console.log(err) }
@@ -19,6 +20,12 @@ router.post('/users/login', (req, res) => {
   })
 })
 
+// update user
+router.put('/users/:id', passport.authenticate('jwt'), (req, res) => {
+  User.findByIdAndUpdate(req.params.id, req.body)
+    .then(() => res.sendStatus(200))
+    .catch(err => res.json(err))
+})
 
 //delete a user
 router.delete('/users', passport.authenticate('jwt'), (req, res) => {
