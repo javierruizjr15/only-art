@@ -1,4 +1,17 @@
 import { useState, useEffect } from 'react'
+import 'react-bulma-components/basic/react-bulma-components.min.css';
+import { 
+  Navbar,
+  NavbarBrand,
+  NavbarBurger,
+  NavbarMenu,
+  NavbarStart,
+  NavbarEnd,
+  NavbarItem,
+  NavbarLink,
+  NavbarkDropdown,
+  NavbarDivier
+} from 'react-bulma-components/dist';
 import User from '../../utils/User'
 import './AppBar.css'
 
