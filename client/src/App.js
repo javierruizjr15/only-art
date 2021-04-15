@@ -14,8 +14,14 @@ const App = () => {
       <div>
         <AppBar />
         <Switch>
-          <Route exact path = '/'>
+          <Route exact path='/'>
             <Home />
+          </Route>
+          <Route path='/login'>
+            <Login />
+          </Route>
+          <Route path='/profile'>
+            <Profile />
           </Route>
         </Switch>
       </div>
