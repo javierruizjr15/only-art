@@ -2,7 +2,6 @@ const router = require('express').Router()
 const { Post, User } = require('../models')
 const passport = require('passport')
 
-
 //find all posts
 router.get('/posts', passport.authenticate('jwt'), (req, res) => {
   Post.find({})
