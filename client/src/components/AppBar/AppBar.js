@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react'
-import 'react-bulma-components/basic/react-bulma-components.min.css'
-import { 
+import {
+  Collapse,
   Navbar,
+  NavbarToggler,
   NavbarBrand,
-  NavbarBurger,
-  NavbarMenu,
-  NavbarStart,
-  NavbarEnd,
-  NavbarItem,
-  NavbarLink,
-  NavbarkDropdown,
-  NavbarDivier
-} from 'react-bulma-components/dist'
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText
+} from 'reactstrap'
+import { Link } from 'react-router-dom'
 import User from '../../utils/User'
 import './AppBar.css'
 
