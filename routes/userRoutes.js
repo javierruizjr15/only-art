@@ -20,6 +20,11 @@ router.post('/users/login', (req, res) => {
   })
 })
 
+//get user
+router.get('/users', passport.authenticate('jwt'), (req, res) => {
+  res.json(req.user)
+})
+
 // update user
 router.put('/users/:id', passport.authenticate('jwt'), (req, res) => {
   User.findByIdAndUpdate(req.params.id, req.body)
