@@ -1,10 +1,9 @@
 {
   "name": "art-only",
   "version": "0.1.0",
-  "description": "",
-  "main": "server.js",  
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "server.js",
   "private": true,
-
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -14,7 +13,6 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
@@ -52,8 +50,6 @@
       "last 1 safari version"
     ]
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/javierruizjr15/only-art.git"
