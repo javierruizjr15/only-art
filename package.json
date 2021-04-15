@@ -49,5 +49,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javierruizjr15/only-art.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javierruizjr15/only-art/issues"
+  },
+  "homepage": "https://github.com/javierruizjr15/only-art#readme"
 }
