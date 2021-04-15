@@ -12,11 +12,17 @@ router.post('/users/register', (req, res) => {
 })
 
 
+router.post('/users/login', (req, res) => {
+  User.authenticate()(req.body.username, req.body.password, (err, user) => {
+    if (err) { console.log(err) }
+    res.json(user ? jwt.sign({ id: user._id }, process.env.SECRET) : null)
+  })
+})
 
 
 //delete a user
-router.delete('/user/:id', passport.authenticate('jwt'), (req, res) => {
-  User.findByIdAndDelete(req.params.id)
+router.delete('/users', passport.authenticate('jwt'), (req, res) => {
+  User.findByIdAndDelete(req.user._id)
     .then(() => res.sendStatus(200))
     .catch(err => res.json(err))
 })
