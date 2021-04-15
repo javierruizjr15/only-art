@@ -1,15 +1,25 @@
-import './index.js'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Profile from './pages/Profile'
+import AppBar from './components/AppBar'
 
 const App = () => {
   return (
-    <>
-      <section className="section">
-        <div className="container">
-          <h1 className="title"> Hello World </h1>
-          <p className="subtitle"> My React app  with     <strong>Bulma</strong> </p>
-        </div>
-      </section>
-    </>
+    <Router>
+      <div>
+        <AppBar />
+        <Switch>
+          <Route exact path = '/'>
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   )
 }
 
