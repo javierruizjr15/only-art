@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import 'react-bulma-components/basic/react-bulma-components.min.css';
+import 'react-bulma-components/basic/react-bulma-components.min.css'
 import { 
   Navbar,
   NavbarBrand,
@@ -11,7 +11,7 @@ import {
   NavbarLink,
   NavbarkDropdown,
   NavbarDivier
-} from 'react-bulma-components/dist';
+} from 'react-bulma-components/dist'
 import User from '../../utils/User'
 import './AppBar.css'
 
