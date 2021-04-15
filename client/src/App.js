@@ -15,7 +15,7 @@ const App = () => {
       <div>
         <AppBar />
         <Switch>
-          <Route exact path = '/'>
+          <Route exact path='/'>
             <Home />
           </Route>
           <Route path='/login'>
@@ -23,9 +23,6 @@ const App = () => {
           </Route>
           <Route path='/profile'>
             <Profile />
-          </Route>
-          <Route path='/register'>
-            <Register />
           </Route>
         </Switch>
       </div>
