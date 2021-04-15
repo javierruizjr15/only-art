@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const { Post, User } = require('../models')
 const passport = require('passport')
-const reactDom = require('react-dom')
 
 //find all posts
 router.get('/posts', passport.authenticate('jwt'), (req, res) => {
