@@ -16,7 +16,7 @@ import {
 import { Link } from 'react-router-dom'
 import User from '../../utils/User'
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 
 const AppBar = () => {
   return (
