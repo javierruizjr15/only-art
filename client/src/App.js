@@ -4,8 +4,8 @@ import {
   Switch
 } from 'react-router-dom'
 import Home from './pages/Home'
-import Login from './pages/Login'
-import Profile from './pages/Profile'
+// import Login from './pages/Login'
+// import Profile from './pages/Profile'
 import AppBar from './components/AppBar'
 
 const App = () => {
