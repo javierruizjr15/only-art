@@ -1,7 +1,7 @@
 {
   "name": "art-only",
   "version": "0.1.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "description": "",
   "main": "server.js",
   "private": true,
   "scripts": {
