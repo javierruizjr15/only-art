@@ -3,17 +3,18 @@ import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
+import jokerart from './jokerart.jpg'
 
 const Artcard = (props) => {
   return (
     <div>
-      <Card>
-        <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" />
+      <Card style={{ width: '18rem' }}>
+        <CardImg top width="100%" src={ jokerart } alt="Card image cap" />
         <CardBody>
-          <CardTitle tag="h5">Card title</CardTitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-          <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-          <Button>Button</Button>
+          <CardTitle tag="h5">Mad Joker</CardTitle>
+          <CardSubtitle tag="h6" className="mb-2 text-muted">By: Sir-Spanks</CardSubtitle>
+          <CardText>This is a self portrait of me on Monday mornings</CardText>
+          <Button>Contact</Button>
         </CardBody>
       </Card>
     </div>
