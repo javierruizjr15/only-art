@@ -14,6 +14,7 @@ const Artcard = (props) => {
           <CardTitle tag="h5">Mad Joker</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">By: Sir-Spanks</CardSubtitle>
           <CardText>This is a self portrait of me on Monday mornings</CardText>
+          <CardText>Price: $100</CardText>
           <Button>Contact</Button>
         </CardBody>
       </Card>
