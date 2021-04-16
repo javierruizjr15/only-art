@@ -5,7 +5,6 @@ import {
   CardTitle, CardSubtitle
 } from 'reactstrap'
 import Post from '../../utils/Post'
-
 const Home = () => {
   const [postState, setPostState] = useState({
     title: '',
