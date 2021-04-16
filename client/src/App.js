@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import Profile from './pages/Profile'
 import Register from './pages/Register'
 import AppBar from './components/AppBar'
+import Createpost from './pages/Createpost'
 
 const App = () => {
   return (
@@ -23,6 +24,12 @@ const App = () => {
           </Route>
           <Route path='/profile'>
             <Profile />
+          </Route>
+          <Route path='/register'>
+            <Register />
+          </Route>
+          <Route path='/createpost'>
+            <Createpost />
           </Route>
         </Switch>
       </div>

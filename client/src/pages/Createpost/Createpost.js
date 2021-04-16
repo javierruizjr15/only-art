@@ -5,12 +5,14 @@ import {
   CardTitle, CardSubtitle
 } from 'reactstrap'
 import Post from '../../utils/Post'
-import ReactFirebaseFileUpload from '../../components/Createpost'
-
-const Home = () => {
+import Artcard from '../../components/Artcard'
+const Createpost = () => {
   const [postState, setPostState] = useState({
     title: '',
+    image: '',
     body: '',
+    category: '',
+    price: '',
     posts: []
   })
 
@@ -41,15 +43,14 @@ const Home = () => {
       })
       .catch(err => {
         console.error(err)
-        window.location = '/login'
+        // the line below is commented out so I can test post w/o loging in. 
+        // window.location = '/login'
       })
   }, [])
   return (
     <>
-    <h1>Create Art Post</h1>
-      <ReactFirebaseFileUpload />
-
-      {/* <h1>Create A Post</h1>
+      <h1>Create A Post</h1>
+      <Artcard />
       <Form inline onSubmit={handleCreatePost}>
         <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
           <Label htmlFor='title' className='mr-sm-2'>Title</Label>
@@ -69,6 +70,23 @@ const Home = () => {
             onChange={handleInputChange}
           />
         </FormGroup>
+        <FormGroup>
+          <Label for="exampleSelect">Catergory</Label>
+          <Input type="select" name="select" id="exampleSelect">
+            <option>Painting</option>
+            <option>Sculpture</option>
+            <option>Architecture</option>
+          </Input>
+        </FormGroup>
+        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
+          <Label htmlFor='price' className='mr-sm-2'>$Price$</Label>
+          <Input
+            type='number'
+            name='price'
+            value={postState.price}
+            onChange={handleInputChange}
+          />
+        </FormGroup>
         <Button onClick={handleCreatePost}>Create Post</Button>
       </Form>
       {
@@ -83,9 +101,9 @@ const Home = () => {
             </Card>
           ))
           : null
-      } */}
+      }
     </>
   )
 }
 
-export default Home
+export default Createpost
