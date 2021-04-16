@@ -5,7 +5,7 @@ import {
   CardTitle, CardSubtitle
 } from 'reactstrap'
 import Post from '../../utils/Post'
-
+import Artcard from '../../components/Artcard'
 const Createpost = () => {
   const [postState, setPostState] = useState({
     title: '',
@@ -50,6 +50,7 @@ const Createpost = () => {
   return (
     <>
       <h1>Create A Post</h1>
+      <Artcard />
       <Form inline onSubmit={handleCreatePost}>
         <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
           <Label htmlFor='title' className='mr-sm-2'>Title</Label>
