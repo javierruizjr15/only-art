@@ -5,6 +5,7 @@ import {
   CardTitle, CardSubtitle
 } from 'reactstrap'
 import Post from '../../utils/Post'
+import ReactFirebaseFileUpload from '../../components/Createpost'
 
 const Home = () => {
   const [postState, setPostState] = useState({
@@ -45,7 +46,10 @@ const Home = () => {
   }, [])
   return (
     <>
-      <h1>Create A Post</h1>
+    <h1>Create Art Post</h1>
+      <ReactFirebaseFileUpload />
+
+      {/* <h1>Create A Post</h1>
       <Form inline onSubmit={handleCreatePost}>
         <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
           <Label htmlFor='title' className='mr-sm-2'>Title</Label>
@@ -79,7 +83,7 @@ const Home = () => {
             </Card>
           ))
           : null
-      }
+      } */}
     </>
   )
 }
