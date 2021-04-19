@@ -1,1 +1,1 @@
-export { default } from './Artcard'
+export { default } from './ArtCard.js'
