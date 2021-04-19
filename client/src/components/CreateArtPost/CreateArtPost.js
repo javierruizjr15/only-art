@@ -59,3 +59,5 @@ const ReactFirebaseFileUpload = () => {
 render(<ReactFirebaseFileUpload />, document.querySelector("#root"))
 
 export default ReactFirebaseFileUpload
+
+// line 37 remember to add userid
