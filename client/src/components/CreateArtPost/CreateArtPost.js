@@ -52,8 +52,6 @@ const ReactFirebaseFileUpload = () => {
       <button onClick={handleUpload}>Upload</button>
       <br />
       {url}
-      <br />
-      <img src={url || "http://via.placeholder.com/300"} alt="firebase-iamge" />
     </div>
   )
 }

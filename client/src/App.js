@@ -16,7 +16,7 @@ import Modal from './components/Modal'
 
 const App = () => {
 
-  const [selectedImg, setSelectedImg] = useState(null);
+  const [selectedImg, setSelectedImg] = useState(null)
 
   return (
     <Router>
@@ -35,9 +35,9 @@ const App = () => {
           <Route path='/register'>
             <Register />
           </Route>
-          <Route path='/createpost'>
+          {/* <Route path='/createpost'>
             <Createpost />
-          </Route>
+          </Route> */}
         </Switch>
         <ArtCard setSelectedImg={setSelectedImg} />
         { selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> }

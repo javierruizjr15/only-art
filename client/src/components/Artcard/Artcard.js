@@ -16,7 +16,8 @@ const ArtCard = ({ setSelectedImg }) => {
         <motion.div className="img-wrap" key={doc.id}
         layout
         whileHover={{ opacity: 1}}
-          onClick={() => setSelectedImg(doc.url)}>
+          onClick={() => setSelectedImg(doc.url)}
+          >
 
           <motion.img src={doc.url} alt="uploaded art"
             initial={{ opacity: 0 }}
