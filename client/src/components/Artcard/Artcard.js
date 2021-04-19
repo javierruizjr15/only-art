@@ -3,23 +3,30 @@ import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
-import jokerart from './jokerart.jpg'
+import useFirestore from '../../utils/useFirestore.js'
+import { motion } from 'framer-motion'
 
-const Artcard = (props) => {
+const ArtCard = ({ setSelectedImg }) => {
+  const { docs } = useFirestore('images')
+  console.log(docs)
+
   return (
-    <div>
-      <Card style={{ width: '18rem' }}>
-        <CardImg top width="100%" src={ jokerart } alt="Card image cap" />
-        <CardBody>
-          <CardTitle tag="h5">Mad Joker</CardTitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">By: Sir-Spanks</CardSubtitle>
-          <CardText>This is a self portrait of me on Monday mornings</CardText>
-          <CardText>Price: $100</CardText>
-          <Button>Contact</Button>
-        </CardBody>
-      </Card>
+    <div className="img-grid">
+      { docs && docs.map(doc => (
+        <motion.div className="img-wrap" key={doc.id}
+        layout
+        whileHover={{ opacity: 1}}
+          onClick={() => setSelectedImg(doc.url)}>
+
+          <motion.img src={doc.url} alt="uploaded art"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          />
+        </motion.div>
+      ))}
     </div>
   );
 };
 
-export default Artcard;
+export default ArtCard;

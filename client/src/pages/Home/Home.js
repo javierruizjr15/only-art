@@ -5,7 +5,7 @@ import {
   CardTitle, CardSubtitle
 } from 'reactstrap'
 import Post from '../../utils/Post'
-import ReactFirebaseFileUpload from '../../components/Createpost'
+import ReactFirebaseFileUpload from '../../components/CreateArtPost'
 
 const Home = () => {
   const [postState, setPostState] = useState({

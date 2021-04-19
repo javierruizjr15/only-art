@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -8,12 +9,18 @@ import Login from './pages/Login'
 import Profile from './pages/Profile'
 import Register from './pages/Register'
 import AppBar from './components/AppBar'
+import CreateArtPost from './components/CreateArtPost'
 import Createpost from './pages/Createpost'
+import ArtCard from './components/ArtCard'
+import Modal from './components/Modal'
 
 const App = () => {
+
+  const [selectedImg, setSelectedImg] = useState(null);
+
   return (
     <Router>
-      <div>
+      <div className="App">
         <AppBar />
         <Switch>
           <Route exact path='/'>
@@ -32,6 +39,8 @@ const App = () => {
             <Createpost />
           </Route>
         </Switch>
+        <ArtCard setSelectedImg={setSelectedImg} />
+        { selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> }
       </div>
     </Router>
   )
