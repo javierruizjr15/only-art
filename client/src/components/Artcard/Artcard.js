@@ -1,8 +1,8 @@
 import React from 'react';
-import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
-} from 'reactstrap';
+// import {
+//   Card, CardImg, CardText, CardBody,
+//   CardTitle, CardSubtitle, Button
+// } from 'reactstrap';
 import useFirestore from '../../utils/useFirestore.js'
 import { motion } from 'framer-motion'
 
