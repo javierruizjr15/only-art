@@ -1,11 +1,12 @@
 import React, { useState } from "react"
 import { render } from "react-dom"
-import { storage } from "../../utils/firebase"
+import { storage, firestore, timestamp } from "../../utils/firebase"
 
 const ReactFirebaseFileUpload = () => {
   const [image, setImage] = useState(null)
   const [url, setUrl] = useState("")
   const [progress, setProgress] = useState(0)
+  const collectionRef = firestore.collection('images')
 
   const handleChange = e => {
     if (e.target.files[0]) {
@@ -32,6 +33,8 @@ const ReactFirebaseFileUpload = () => {
           .child(image.name)
           .getDownloadURL()
           .then(url => {
+            const createdAt = timestamp()
+            collectionRef.add({ url, createdAt })
             setUrl(url)
           })
       }
@@ -49,8 +52,6 @@ const ReactFirebaseFileUpload = () => {
       <button onClick={handleUpload}>Upload</button>
       <br />
       {url}
-      <br />
-      <img src={url || "http://via.placeholder.com/300"} alt="firebase-iamge" />
     </div>
   )
 }

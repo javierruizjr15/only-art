@@ -5,7 +5,7 @@ import {
   CardTitle, CardSubtitle
 } from 'reactstrap'
 import Post from '../../utils/Post'
-import Artcard from '../../components/Artcard'
+import Artcard from '../../components/ArtCard'
 const Createpost = () => {
   const [postState, setPostState] = useState({
     title: '',
