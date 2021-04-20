@@ -71,7 +71,7 @@ const Createpost = () => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="exampleSelect">Catergory</Label>
+          <Label for="exampleSelect">Category</Label>
           <Input type="select" name="select" id="exampleSelect">
             <option>Painting</option>
             <option>Sculpture</option>
