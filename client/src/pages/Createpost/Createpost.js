@@ -5,7 +5,7 @@ import {
   CardTitle, CardSubtitle
 } from 'reactstrap'
 import Post from '../../utils/Post'
-import Artcard from '../../components/ArtCard'
+import ArtCard from '../../components/ArtCard'
 const Createpost = () => {
   const [postState, setPostState] = useState({
     title: '',
@@ -70,7 +70,7 @@ const Createpost = () => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="exampleSelect">Catergory</Label>
+          <Label for="exampleSelect">Category</Label>
           <Input type="select" name="select" id="exampleSelect">
             <option>Painting</option>
             <option>Sculpture</option>
