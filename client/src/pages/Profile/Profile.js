@@ -4,11 +4,24 @@ import {
   CardTitle, CardSubtitle
 } from 'reactstrap'
 import User from '../../utils/User'
+import Post from '../../utils/Post'
 
 const Profile = () => {
   const [profileState, setProfileState] = useState({
     user: {}
   })
+
+  const [postState, setPostState] = useState({
+    posts:[]
+  })
+
+  const handleDeletePost = id =>{
+    Post.delete(id)
+      .then(()=>{
+        const posts = postState.posts.filter(post=>post._id!==id)
+        setPostState({...postState,posts})
+      })
+  }
 
   useEffect(() => {
     User.profile()
@@ -39,11 +52,14 @@ const Profile = () => {
                 <CardTitle tag='h5'>{post.title}</CardTitle>
                 <CardSubtitle tag='h6' className='mb-2 text-muted'>posted by {profileState.user.username}</CardSubtitle>
                 <CardText>{post.body}</CardText>
+                <button onClick={()=>handleDeletePost(post._id)}>Delete</button>
               </CardBody>
+              
             </Card>
           ))
           : null
       }
+      
     </>
   )
 }

@@ -70,6 +70,11 @@ const AppBar = () => {
               <NavItem>
                 <NavLink onClick={handleLogOut}>Log Out</NavLink>
               </NavItem>
+              <NavItem>
+                <Link to='/createpost' className='link'>
+                  <NavLink>Create and Sell</NavLink>
+                </Link>
+              </NavItem>
             </>
           }
         </Nav>
