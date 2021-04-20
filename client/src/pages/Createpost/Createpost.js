@@ -46,11 +46,11 @@ const Createpost = () => {
         // the line below is commented out so I can test post w/o loging in. 
         // window.location = '/login'
       })
-  }, [])
+  }, [handleCreatePost])
   return (
     <>
       <h1>Create A Post</h1>
-      <Artcard />
+      {/* <Artcard /> */}
       <Form inline onSubmit={handleCreatePost}>
         <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
           <Label htmlFor='title' className='mr-sm-2'>Title</Label>

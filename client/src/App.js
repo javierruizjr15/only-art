@@ -35,12 +35,12 @@ const App = () => {
           <Route path='/register'>
             <Register />
           </Route>
-          {/* <Route path='/createpost'>
+          <Route path='/createpost'>
             <Createpost />
-          </Route> */}
+          </Route>
         </Switch>
-        <ArtCard setSelectedImg={setSelectedImg} />
-        { selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> }
+        {/* <ArtCard setSelectedImg={setSelectedImg} />
+        { selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> } */}
       </div>
     </Router>
   )

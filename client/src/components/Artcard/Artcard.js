@@ -1,9 +1,9 @@
 import React from 'react';
-// import {
-//   Card, CardImg, CardText, CardBody,
-//   CardTitle, CardSubtitle, Button
-// } from 'reactstrap';
-import useFirestore from '../../utils/useFirestore.js'
+import {
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button
+} from 'reactstrap';
+import useFirestore from '../../utils/useFirestore.js/index.js'
 import { motion } from 'framer-motion'
 
 const ArtCard = ({ setSelectedImg }) => {
