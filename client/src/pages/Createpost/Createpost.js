@@ -46,7 +46,7 @@ const Createpost = () => {
         // the line below is commented out so I can test post w/o loging in. 
         // window.location = '/login'
       })
-  }, [])
+  }, [handleCreatePost])
   return (
     <>
       <h1>Create A Post</h1>
