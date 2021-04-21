@@ -12,15 +12,6 @@ const ReactFirebaseFileUpload = () => {
     user: {}
   })
   
-  useEffect(() => {
-    User.profile()
-      .then(({ data: user }) => setProfileState({ ...profileState, user }))
-      .catch(err => {
-        console.error(err)
-        window.location = '/login'
-      })
-  }, [])
-
   const handleChange = e => {
     if (e.target.files[0]) {
       setImage(e.target.files[0])
@@ -47,14 +38,19 @@ const ReactFirebaseFileUpload = () => {
           .getDownloadURL()
           .then(url => {
             const createdAt = timestamp()
-            collectionRef.add({ url, createdAt, artist: profileState })
+            let newArt = {
+
+            }
+            User.saveArt()
+            .then()
+            .catch()
+            // collectionRef.add({ url, createdAt, artist: profileState })
             setUrl(url)
           })
       }
     )
   }
 
-  console.log("image: ", image)
 
   return (
     <div>

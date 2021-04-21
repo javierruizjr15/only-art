@@ -9,7 +9,6 @@ const Post = new Schema({
   title: String,
   image: String,
   body: String,
-  category: String,
   price: Number,
 })
 
