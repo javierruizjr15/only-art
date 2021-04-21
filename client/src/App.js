@@ -39,8 +39,8 @@ const App = () => {
             <Createpost />
           </Route>
         </Switch>
-        {/* <ArtCard setSelectedImg={setSelectedImg} />
-        { selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> } */}
+        <ArtCard setSelectedImg={setSelectedImg} />
+        { selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> }
       </div>
     </Router>
   )
