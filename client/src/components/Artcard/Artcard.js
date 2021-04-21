@@ -5,11 +5,11 @@ import {
 } from 'reactstrap';
 import useFirestore from '../../utils/useFirestore.js/index.js'
 import { motion } from 'framer-motion'
+import { useState, useEffect } from "react"
 
 const ArtCard = ({ setSelectedImg }) => {
   const { docs } = useFirestore('images')
-  console.log(docs)
-
+  
   return (
     <div className="img-grid">
       { docs && docs.map(doc => (
@@ -18,11 +18,13 @@ const ArtCard = ({ setSelectedImg }) => {
         whileHover={{ opacity: 1}}
           onClick={() => setSelectedImg(doc.url)}
           >
-
+          
+          console.log('test', docs.user.artist.name)
           <motion.img src={doc.url} alt="uploaded art"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
+            
           />
         </motion.div>
       ))}

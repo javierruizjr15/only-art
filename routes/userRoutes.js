@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User } = require('../models')
+const { User, Post } = require('../models')
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
 
@@ -38,5 +38,25 @@ router.delete('/users', passport.authenticate('jwt'), (req, res) => {
     .then(() => res.sendStatus(200))
     .catch(err => res.json(err))
 })
+
+// saving art to user
+  router.post('/users/art', passport.authenticate('jwt'), (req, res) => {
+    Post.create(req.body)
+    .then((post) => {
+      User.findByIdAndUpdate(req.user._id, {
+        $addToSet: {
+          posts: post._id
+        }
+      })
+      .then((user) => {
+        res.json({
+          user: user,
+          post: post
+        })
+      })
+        .catch(err => res.json(err))
+    })
+    .catch(err => res.json(err))
+  })
 
 module.exports = router
