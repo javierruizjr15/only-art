@@ -1,12 +1,25 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { render } from "react-dom"
 import { storage, firestore, timestamp } from "../../utils/firebase"
+import User from '../../utils/User'
 
 const ReactFirebaseFileUpload = () => {
   const [image, setImage] = useState(null)
   const [url, setUrl] = useState("")
   const [progress, setProgress] = useState(0)
   const collectionRef = firestore.collection('images')
+  const [profileState, setProfileState] = useState({
+    user: {}
+  })
+  
+  useEffect(() => {
+    User.profile()
+      .then(({ data: user }) => setProfileState({ ...profileState, user }))
+      .catch(err => {
+        console.error(err)
+        window.location = '/login'
+      })
+  }, [])
 
   const handleChange = e => {
     if (e.target.files[0]) {
@@ -34,7 +47,7 @@ const ReactFirebaseFileUpload = () => {
           .getDownloadURL()
           .then(url => {
             const createdAt = timestamp()
-            collectionRef.add({ url, createdAt })
+            collectionRef.add({ url, createdAt, artist: profileState })
             setUrl(url)
           })
       }

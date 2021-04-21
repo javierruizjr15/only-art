@@ -23,3 +23,5 @@ const useFirestore = (collection) => {
 }
 
 export default useFirestore
+
+// get me the firestore where the user id 
