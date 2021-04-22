@@ -12,17 +12,14 @@ const Profile = () => {
     user: {}
   })
 
-  const [postState, setPostState] = useState({
-    posts: []
-  })
 
   const handleDeletePost = id => {
     Post.delete(id)
       .then(() => {
-        const posts = postState.posts.filter(post => post._id !== id)
-        setPostState({ ...postState, posts })
+        const user = profileState.user
+        user.posts = profileState.user.posts.filter(post => post._id !== id)
+        setProfileState({ ...profileState, user })
       })
-      .catch(err => console.log(err))
   }
 
   useEffect(() => {
