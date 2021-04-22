@@ -22,9 +22,7 @@ router.post('/users/login', (req, res) => {
 
 //get user
 router.get('/users', passport.authenticate('jwt'), (req, res) => {
-  User.find({})
-  .then(users=>res.json(users))
-  .catch(err=>console.log(err))
+  res.json(req.user)
 })
 
 // update user
