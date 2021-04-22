@@ -5,9 +5,9 @@ import {
   CardTitle, CardSubtitle
 } from 'reactstrap'
 import Post from '../../utils/Post'
-import ArtCard from '../../components/ArtCard'
-import { render } from "react-dom"
-import { storage, firestore, timestamp } from "../../utils/firebase"
+// import ArtCard from '../../components/ArtCard'
+// import { render } from "react-dom"
+import { storage } from "../../utils/firebase"
 import User from '../../utils/User'
 
 const Createpost = () => {
@@ -21,7 +21,7 @@ const Createpost = () => {
   const [image, setImage] = useState(null)
   const [url, setUrl] = useState("")
   const [progress, setProgress] = useState(0)
-  const collectionRef = firestore.collection('images')
+  // const collectionRef = firestore.collection('images')
   const [profileState, setProfileState] = useState({
     user: {}
   })
@@ -55,7 +55,6 @@ const Createpost = () => {
           .child(image.name)
           .getDownloadURL()
           .then(url => {
-            const createdAt = timestamp()
             let newArt = {
               title: postState.title,
               image: url,
@@ -87,6 +86,7 @@ const Createpost = () => {
         // window.location = '/login'
       })
   }, [])
+
   return (
     <>
       <h1>Create A Post</h1>
@@ -137,7 +137,7 @@ const Createpost = () => {
             <Card key={post._id}>
               <CardBody>
                 <CardTitle tag='h5'>{post.title}</CardTitle>
-                <CardSubtitle tag='h6' className='mb-2 text-muted'>posted by {post.author.username}</CardSubtitle>
+                <CardSubtitle tag='h6' className='mb-2 text-muted'>posted by {post.username}</CardSubtitle>
                 <CardText>{post.body}</CardText>
               </CardBody>
             </Card>

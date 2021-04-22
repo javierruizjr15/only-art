@@ -11,18 +11,13 @@ body{
   color: var(--secondary)
 }
 
-.App {
-  max-width: inherit;
-  margin: 0 auto;
-}
-
 .progress-bar{
   height: 5px;
   background: var(--primary);
   margin-top: 20px;
 }
 
-.img-grid{
+/* .img-grid{
   margin: 20px auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -62,4 +57,4 @@ body{
   margin: 60px auto;
   box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
   border: 3px solid white;
-}
+} */
