@@ -138,7 +138,7 @@ const Createpost = () => {
             <Card key={post._id}>
               <CardBody>
                 <CardTitle tag='h5'>{post.title}</CardTitle>
-                <CardSubtitle tag='h6' className='mb-2 text-muted'>posted by {post.author.username}</CardSubtitle>
+                <CardSubtitle tag='h6' className='mb-2 text-muted'>posted by {post.username}</CardSubtitle>
                 <CardText>{post.body}</CardText>
               </CardBody>
             </Card>
