@@ -20,11 +20,16 @@ router.post('/users/login', (req, res) => {
   })
 })
 
-//get user
+//get user's profile
+router.get('/user', passport.authenticate('jwt'), (req, res) => {
+  res.json(req.user)
+})
+
+//get all users
 router.get('/users', passport.authenticate('jwt'), (req, res) => {
   User.find({})
-  .then(users=>res.json(users))
-  .catch(err=>console.log(err))
+    .then(users => res.json(users))
+    .catch(err => console.log(err))
 })
 
 // update user

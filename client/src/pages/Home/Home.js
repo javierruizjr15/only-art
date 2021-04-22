@@ -34,18 +34,15 @@ const Home = () => {
   }
 
   useEffect(() => {
-    User.profile()
-      .then(({ data }) => {
-        data.map(user => (
-          user.posts ? console.log(user.posts)
-            : null
-        ))
-  ))
-})
+    User.getAllProfiles()
+      .then(({data:users})=>{
+        console.log(users)
+        users.map(user=>
+          user.posts.map(art=>console.log(art)))
+      }) 
       .catch (err => {
-  console.error(err)
-  window.location = '/login'
-})
+        console.error(err)
+      })
   }, [])
 return (
   <>
