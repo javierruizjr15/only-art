@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 
-import {
-  Card, CardText, CardBody,
-  CardTitle, CardSubtitle, CardImg, Button, Container
-} from 'reactstrap'
+// import {
+//   Card, CardText, CardBody,
+//   CardTitle, CardSubtitle, CardImg, Button, Container
+// } from 'reactstrap'
 import Post from '../../utils/Post'
 import User from '../../utils/User'
 
@@ -44,6 +44,8 @@ const Home = () => {
         console.error(err)
       })
   }, [])
+
+  
 return (
   <>
     <h1>Home Page</h1>
