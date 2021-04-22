@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
-import {
-  Button, Form, FormGroup, Label, Input,
-  Card, CardText, CardBody,
-  CardTitle, CardSubtitle
-} from 'reactstrap'
+// import {
+//   Button, Form, FormGroup, Label, Input,
+//   Card, CardText, CardBody,
+//   CardTitle, CardSubtitle
+// } from 'reactstrap'
 import Post from '../../utils/Post'
-import ReactFirebaseFileUpload from '../../components/CreateArtPost'
 
 const Home = () => {
   const [postState, setPostState] = useState({
@@ -47,7 +46,7 @@ const Home = () => {
   return (
     <>
     <h1>Create Art Post</h1>
-      <ReactFirebaseFileUpload />
+      {/* <ReactFirebaseFileUpload /> */}
 
       {/* <h1>Create A Post</h1>
       <Form inline onSubmit={handleCreatePost}>

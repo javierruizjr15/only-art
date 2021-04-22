@@ -1,1 +1,1 @@
-export { default } from './Createpost'
+export { default } from './Createpost.js'

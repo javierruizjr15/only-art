@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import {
   Card, CardText, CardBody,
-  CardTitle, CardSubtitle
+  CardTitle, CardSubtitle, CardImg, Button, Container
 } from 'reactstrap'
 import User from '../../utils/User'
 import Post from '../../utils/Post'
+import "./Profile.css"
 
 const Profile = () => {
   const [profileState, setProfileState] = useState({
@@ -12,15 +13,16 @@ const Profile = () => {
   })
 
   const [postState, setPostState] = useState({
-    posts:[]
+    posts: []
   })
 
-  const handleDeletePost = id =>{
+  const handleDeletePost = id => {
     Post.delete(id)
-      .then(()=>{
-        const posts = postState.posts.filter(post=>post._id!==id)
-        setPostState({...postState,posts})
+      .then(() => {
+        const posts = postState.posts.filter(post => post._id !== id)
+        setPostState({ ...postState, posts })
       })
+      .catch(err => console.log(err))
   }
 
   useEffect(() => {
@@ -34,6 +36,7 @@ const Profile = () => {
 
   return (
     <>
+      {/* Rendering your profile info from mongodb */}
       <h1>Your Info</h1>
       <Card>
         <CardBody>
@@ -43,23 +46,33 @@ const Profile = () => {
         </CardBody>
       </Card>
       <hr />
+      {/* Rendering posts from mongodb */}
       <h1>Your Posts</h1>
       {
         profileState.user.posts
           ? profileState.user.posts.map(post => (
-            <Card key={post._id}>
-              <CardBody>
-                <CardTitle tag='h5'>{post.title}</CardTitle>
-                <CardSubtitle tag='h6' className='mb-2 text-muted'>posted by {profileState.user.username}</CardSubtitle>
-                <CardText>{post.body}</CardText>
-                <button onClick={()=>handleDeletePost(post._id)}>Delete</button>
-              </CardBody>
-              
-            </Card>
+            <Container fluid={true}>
+            <div className="row">
+              <div className="col-sm-4">
+                <Card key={post._id}>
+                  <CardImg className="photo" src={post.image} alt="Card image cap" />
+                  <CardBody>
+                    <CardTitle tag='h5'>Title: {post.title}</CardTitle>
+                    <CardText>Description: {post.body}</CardText>
+                    <CardText>Price: ${post.price}</CardText>
+                    <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {profileState.user.username}</CardSubtitle>
+                    <Button>Buy Now</Button>
+                    <Button onClick={() => handleDeletePost(post._id)}>Delete</Button>
+                  </CardBody>
+
+                </Card>
+              </div>
+            </div>
+            </Container>
           ))
           : null
       }
-      
+
     </>
   )
 }
