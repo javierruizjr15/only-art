@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-// import {
-//   Button, Form, FormGroup, Label, Input,
-//   Card, CardText, CardBody,
-//   CardTitle, CardSubtitle
-// } from 'reactstrap'
+import {
+  Button, Card, CardText, CardBody,
+  CardTitle, CardSubtitle, Container, CardImg
+} from 'reactstrap'
+import User from '../../utils/User'
 import Post from '../../utils/Post'
 
 const Home = () => {
@@ -43,46 +43,36 @@ const Home = () => {
         window.location = '/login'
       })
   }, [])
+  
   return (
     <>
-    <h1>Create Art Post</h1>
-      {/* <ReactFirebaseFileUpload /> */}
+      <Container fluid={true}>
+        <div className="row">
+          {
+            profileState.user.posts
+              ? profileState.user.posts.map(post => (
 
-      {/* <h1>Create A Post</h1>
-      <Form inline onSubmit={handleCreatePost}>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='title' className='mr-sm-2'>Title</Label>
-          <Input
-            type='text'
-            name='title'
-            value={postState.title}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='body' className='mr-sm-2'>Body</Label>
-          <Input
-            type='textarea'
-            name='body'
-            value={postState.body}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <Button onClick={handleCreatePost}>Create Post</Button>
-      </Form>
-      {
-        postState.posts.length
-          ? postState.posts.map(post => (
-            <Card key={post._id}>
-              <CardBody>
-                <CardTitle tag='h5'>{post.title}</CardTitle>
-                <CardSubtitle tag='h6' className='mb-2 text-muted'>posted by {post.author.username}</CardSubtitle>
-                <CardText>{post.body}</CardText>
-              </CardBody>
-            </Card>
-          ))
-          : null
-      } */}
+
+                <div className="col-sm-4">
+                  <Card key={post._id}>
+                    <CardImg className="photo" src={post.image} alt="Card image cap" />
+                    <CardBody>
+                      <CardTitle tag='h5'>Title: {post.title}</CardTitle>
+                      <CardText>Description: {post.body}</CardText>
+                      <CardText>Price: ${post.price}</CardText>
+                      <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {profileState.user.username}</CardSubtitle>
+                      <Button>Buy Now</Button>
+                      <Button onClick={() => handleDeletePost(post._id)}>Delete</Button>
+                    </CardBody>
+
+                  </Card>
+                </div>
+
+
+              ))
+              : null
+          }</div>
+      </Container>
     </>
   )
 }
