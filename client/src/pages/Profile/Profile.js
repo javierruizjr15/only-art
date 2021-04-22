@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import {
   Card, CardText, CardBody,
-  CardTitle, CardSubtitle
+  CardTitle, CardSubtitle, CardImg, Button
 } from 'reactstrap'
 import User from '../../utils/User'
 import Post from '../../utils/Post'
+import "./Profile.css"
 
 const Profile = () => {
   const [profileState, setProfileState] = useState({
@@ -47,16 +48,19 @@ const Profile = () => {
       {
         profileState.user.posts
           ? profileState.user.posts.map(post => (
+          <div>
             <Card key={post._id}>
+                <CardImg  className="photo" src={post.image} alt="Card image cap" />
               <CardBody>
                 <CardTitle tag='h5'>{post.title}</CardTitle>
-                <img src={post.image} alt={post.body} />
                 <CardSubtitle tag='h6' className='mb-2 text-muted'>posted by {profileState.user.username}</CardSubtitle>
                 <CardText>{post.body}</CardText>
-                <button onClick={()=>handleDeletePost(post._id)}>Delete</button>
+                <Button>Buy Now</Button>
+                <Button onClick={()=>handleDeletePost(post._id)}>Delete</Button>
               </CardBody>
               
             </Card>
+          </div>
           ))
           : null
       }

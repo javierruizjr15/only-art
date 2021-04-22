@@ -12,7 +12,7 @@ import AppBar from './components/AppBar'
 // import CreateArtPost from './components/CreateArtPost'
 import Createpost from './pages/Createpost'
 // import ArtCard from './components/ArtCard'
-import Modal from './components/Modal'
+// import Modal from './components/Modal'
 
 const App = () => {
 
@@ -39,6 +39,7 @@ const App = () => {
             <Createpost />
           </Route>
         </Switch>
+        {/* Code for firebase upload and render connection - don't need in this project but want to keep it for reference later on. */}
         {/* <ArtCard setSelectedImg={setSelectedImg} />
         { selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> } */}
       </div>
