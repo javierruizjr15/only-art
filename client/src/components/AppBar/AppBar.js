@@ -7,11 +7,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
 } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import User from '../../utils/User'
@@ -35,12 +30,10 @@ const AppBar = () => {
       .catch(() => setIsLoggedIn(false))
   }, [])
   return (
-    <Navbar color='light' light expand='md'>
+    <Navbar className="navbar" color='white' light expand='md'>
       <Link to='/' className='link'>
         <NavbarBrand>
-          <a href="#">&#9776; React-Bootstrap
           <img src={artonly} style={{ width: 100, marginTop: -7 }} />
-          </a>
         </NavbarBrand>
       </Link>
       <NavbarToggler onClick={toggle} />
@@ -58,22 +51,22 @@ const AppBar = () => {
             isLoggedIn &&
             <>
               <NavItem>
-                <Link to='/profile' className='link'>
-                  <NavLink>My Profile</NavLink>
-                </Link>
-              </NavItem>
-              <NavItem>
                 <Link to='/' className='link'>
-                  <NavLink>Home</NavLink>
+                  <NavLink color="black">Shop</NavLink>
                 </Link>
-              </NavItem>
-              <NavItem>
-                <NavLink onClick={handleLogOut}>Log Out</NavLink>
               </NavItem>
               <NavItem>
                 <Link to='/createpost' className='link'>
-                  <NavLink>Create and Sell</NavLink>
+                  <NavLink color="black">Create and Sell</NavLink>
                 </Link>
+              </NavItem>
+              <NavItem>
+                <Link to='/profile' className='link'>
+                  <NavLink color="black">My Profile</NavLink>
+                </Link>
+              </NavItem>
+              <NavItem>
+                <NavLink color="black" onClick={handleLogOut}>Log Out</NavLink>
               </NavItem>
             </>
           }

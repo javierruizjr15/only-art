@@ -9,10 +9,7 @@ const Post = new Schema({
   title: String,
   image: String,
   body: String,
-  category: String,
   price: Number,
 })
 
 module.exports = model('Post', Post)
-
-// User, Title, img, description, categories, price

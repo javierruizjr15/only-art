@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -9,14 +9,13 @@ import Login from './pages/Login'
 import Profile from './pages/Profile'
 import Register from './pages/Register'
 import AppBar from './components/AppBar'
-import CreateArtPost from './components/CreateArtPost'
+// import CreateArtPost from './components/CreateArtPost'
 import Createpost from './pages/Createpost'
-import ArtCard from './components/ArtCard'
-import Modal from './components/Modal'
+// import ArtCard from './components/ArtCard'
+// import Modal from './components/Modal'
 
 const App = () => {
 
-  const [selectedImg, setSelectedImg] = useState(null)
 
   return (
     <Router>
@@ -39,6 +38,7 @@ const App = () => {
             <Createpost />
           </Route>
         </Switch>
+        {/* Code for firebase upload and render connection - don't need in this project but want to keep it for reference later on. */}
         {/* <ArtCard setSelectedImg={setSelectedImg} />
         { selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> } */}
       </div>

@@ -5,34 +5,73 @@ import {
   CardTitle, CardSubtitle
 } from 'reactstrap'
 import Post from '../../utils/Post'
-import ArtCard from '../../components/ArtCard'
+// import ArtCard from '../../components/ArtCard'
+// import { render } from "react-dom"
+import { storage } from "../../utils/firebase"
+import User from '../../utils/User'
+
 const Createpost = () => {
   const [postState, setPostState] = useState({
     title: '',
-    image: '',
     body: '',
-    category: '',
     price: '',
     posts: []
+  })
+  
+  const [image, setImage] = useState(null)
+  const [url, setUrl] = useState("")
+  const [progress, setProgress] = useState(0)
+  // const collectionRef = firestore.collection('images')
+  const [profileState, setProfileState] = useState({
+    user: {}
   })
 
   const handleInputChange = ({ target }) => {
     setPostState({ ...postState, [target.name]: target.value })
   }
+  const handleChange = e => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0])
+    }
+  }
 
-  const handleCreatePost = event => {
+  const handleUpload = (event) => {
     event.preventDefault()
-    Post.create({
-      title: postState.title,
-      body: postState.body
-    })
-      .then(({ data: post }) => {
-        console.log(post)
-        const posts = [...postState.posts]
-        posts.push(post)
-        setPostState({ ...postState, posts, title: '', body: '' })
-      })
-      .catch(err => console.error(err))
+    const uploadTask = storage.ref(`images/${image.name}`).put(image)
+    uploadTask.on(
+      "state_changed",
+      snapshot => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        )
+        setProgress(progress)
+      },
+      error => {
+        console.log(error)
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then(url => {
+            let newArt = {
+              title: postState.title,
+              image: url,
+              body: postState.body,
+              price: postState.price
+          
+            }
+            User.saveArt(newArt)
+              .then(({ data }) => {
+                console.log(data)
+              })
+              .catch(err => console.log(err))
+            // collectionRef.add({ url, createdAt, artist: profileState })
+            setUrl(url)
+          })
+      }
+    )
   }
 
   useEffect(() => {
@@ -45,12 +84,13 @@ const Createpost = () => {
         console.error(err) 
         window.location = '/login'
       })
-  }, [handleCreatePost])
+  }, [])
+
   return (
     <>
       <h1>Create A Post</h1>
       {/* <Artcard /> */}
-      <Form inline onSubmit={handleCreatePost}>
+      <Form inline onSubmit={(event) => handleUpload(event)}>
         <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
           <Label htmlFor='title' className='mr-sm-2'>Title</Label>
           <Input
@@ -69,14 +109,6 @@ const Createpost = () => {
             onChange={handleInputChange}
           />
         </FormGroup>
-        <FormGroup>
-          <Label for="exampleSelect">Category</Label>
-          <Input type="select" name="select" id="exampleSelect">
-            <option>Painting</option>
-            <option>Sculpture</option>
-            <option>Architecture</option>
-          </Input>
-        </FormGroup>
         <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
           <Label htmlFor='price' className='mr-sm-2'>$Price$</Label>
           <Input
@@ -85,8 +117,18 @@ const Createpost = () => {
             value={postState.price}
             onChange={handleInputChange}
           />
+        </FormGroup >
+        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
+          <div>
+            <progress value={progress} max="100" />
+            <br />
+            <br />
+            <input type="file" onChange={handleChange} />
+            <br />
+            {url}
+          </div>
         </FormGroup>
-        <Button onClick={handleCreatePost}>Create Post</Button>
+        <Button onClick={(event) => handleUpload(event)}>Create Post</Button>
       </Form>
       {
         postState.posts.length
@@ -94,7 +136,7 @@ const Createpost = () => {
             <Card key={post._id}>
               <CardBody>
                 <CardTitle tag='h5'>{post.title}</CardTitle>
-                <CardSubtitle tag='h6' className='mb-2 text-muted'>posted by {post.author.username}</CardSubtitle>
+                <CardSubtitle tag='h6' className='mb-2 text-muted'>posted by {post.username}</CardSubtitle>
                 <CardText>{post.body}</CardText>
               </CardBody>
             </Card>

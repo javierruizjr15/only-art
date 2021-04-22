@@ -9,6 +9,11 @@ const User = {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('user')}`
     }
+  }),
+  saveArt: (body) => axios.post('/api/users/art', body, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('user')}`
+    }
   })
 }
 

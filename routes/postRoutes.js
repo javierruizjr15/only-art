@@ -30,7 +30,7 @@ router.post('/posts', passport.authenticate('jwt'), (req, res) => {
             image: post.image,
             body: post.body,
             category: post.category,
-            price: post.price,
+            price: post.price
           })
         })
         .catch(err => console.log(err))
