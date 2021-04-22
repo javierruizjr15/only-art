@@ -6,8 +6,8 @@ import {
 } from 'reactstrap'
 import Post from '../../utils/Post'
 // import ArtCard from '../../components/ArtCard'
-import { render } from "react-dom"
-import { storage, firestore, timestamp } from "../../utils/firebase"
+// import { render } from "react-dom"
+import { storage, timestamp } from "../../utils/firebase"
 import User from '../../utils/User'
 
 const Createpost = () => {
@@ -21,7 +21,7 @@ const Createpost = () => {
   const [image, setImage] = useState(null)
   const [url, setUrl] = useState("")
   const [progress, setProgress] = useState(0)
-  const collectionRef = firestore.collection('images')
+  // const collectionRef = firestore.collection('images')
   const [profileState, setProfileState] = useState({
     user: {}
   })

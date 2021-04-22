@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -16,7 +16,6 @@ import Createpost from './pages/Createpost'
 
 const App = () => {
 
-  const [selectedImg, setSelectedImg] = useState(null)
 
   return (
     <Router>

@@ -35,6 +35,7 @@ const Profile = () => {
 
   return (
     <>
+    {/* Rendering Your Info */}
       <h1>Your Info</h1>
       <Card>
         <CardBody>
@@ -44,11 +45,12 @@ const Profile = () => {
         </CardBody>
       </Card>
       <hr />
+      {/* Rendering Posts */}
       <h1>Your Posts</h1>
       {
         profileState.user.posts
           ? profileState.user.posts.map(post => (
-          <div>
+          <div className="col-sm-4">
             <Card key={post._id}>
                 <CardImg  className="photo" src={post.image} alt="Card image cap" />
               <CardBody>
