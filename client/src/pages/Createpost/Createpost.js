@@ -81,9 +81,8 @@ const Createpost = () => {
         setPostState({ ...postState, posts })
       })
       .catch(err => {
-        console.error(err)
-        // the line below is commented out so I can test post w/o loging in. 
-        // window.location = '/login'
+        console.error(err) 
+        window.location = '/login'
       })
   }, [])
 
