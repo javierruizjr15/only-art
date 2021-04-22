@@ -22,6 +22,7 @@ const Profile = () => {
         const posts = postState.posts.filter(post => post._id !== id)
         setPostState({ ...postState, posts })
       })
+      .catch(err => console.log(err))
   }
 
   useEffect(() => {
@@ -50,14 +51,15 @@ const Profile = () => {
       {
         profileState.user.posts
           ? profileState.user.posts.map(post => (
-            <Container fluid>
+            <Container fluid={true}>
             <div className="row">
               <div className="col-sm-4">
                 <Card key={post._id}>
                   <CardImg className="photo" src={post.image} alt="Card image cap" />
                   <CardBody>
-                    <CardTitle tag='h5'>{post.title}</CardTitle>
-                    <CardText>{post.body}</CardText>
+                    <CardTitle tag='h5'>Title: {post.title}</CardTitle>
+                    <CardText>Description: {post.body}</CardText>
+                    <CardText>Price: ${post.price}</CardText>
                     <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {profileState.user.username}</CardSubtitle>
                     <Button>Buy Now</Button>
                     <Button onClick={() => handleDeletePost(post._id)}>Delete</Button>
