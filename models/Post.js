@@ -13,5 +13,3 @@ const Post = new Schema({
 })
 
 module.exports = model('Post', Post)
-
-// User, Title, img, description, categories, price

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import User from '../../utils/User'
-import Artcard from '../../components/ArtCard'
+// import Artcard from '../../components/ArtCard'
 
 
 const Login = () => {

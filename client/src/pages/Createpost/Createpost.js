@@ -5,7 +5,7 @@ import {
   CardTitle, CardSubtitle
 } from 'reactstrap'
 import Post from '../../utils/Post'
-import ArtCard from '../../components/ArtCard'
+// import ArtCard from '../../components/ArtCard'
 import { render } from "react-dom"
 import { storage, firestore, timestamp } from "../../utils/firebase"
 import User from '../../utils/User'
@@ -87,6 +87,7 @@ const Createpost = () => {
         // window.location = '/login'
       })
   }, [])
+
   return (
     <>
       <h1>Create A Post</h1>

@@ -9,9 +9,9 @@ import Login from './pages/Login'
 import Profile from './pages/Profile'
 import Register from './pages/Register'
 import AppBar from './components/AppBar'
-import CreateArtPost from './components/CreateArtPost'
+// import CreateArtPost from './components/CreateArtPost'
 import Createpost from './pages/Createpost'
-import ArtCard from './components/ArtCard'
+// import ArtCard from './components/ArtCard'
 import Modal from './components/Modal'
 
 const App = () => {
@@ -39,8 +39,8 @@ const App = () => {
             <Createpost />
           </Route>
         </Switch>
-        <ArtCard setSelectedImg={setSelectedImg} />
-        { selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> }
+        {/* <ArtCard setSelectedImg={setSelectedImg} />
+        { selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> } */}
       </div>
     </Router>
   )

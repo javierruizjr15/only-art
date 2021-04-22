@@ -50,6 +50,7 @@ const Profile = () => {
             <Card key={post._id}>
               <CardBody>
                 <CardTitle tag='h5'>{post.title}</CardTitle>
+                <img src={post.image} alt={post.body} />
                 <CardSubtitle tag='h6' className='mb-2 text-muted'>posted by {profileState.user.username}</CardSubtitle>
                 <CardText>{post.body}</CardText>
                 <button onClick={()=>handleDeletePost(post._id)}>Delete</button>
