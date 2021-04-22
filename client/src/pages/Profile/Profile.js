@@ -48,31 +48,33 @@ const Profile = () => {
       <hr />
       {/* Rendering posts from mongodb */}
       <h1>Your Posts</h1>
-      {
-        profileState.user.posts
-          ? profileState.user.posts.map(post => (
-            <Container fluid={true}>
-            <div className="row">
-              <div className="col-sm-4">
-                <Card key={post._id}>
-                  <CardImg className="photo" src={post.image} alt="Card image cap" />
-                  <CardBody>
-                    <CardTitle tag='h5'>Title: {post.title}</CardTitle>
-                    <CardText>Description: {post.body}</CardText>
-                    <CardText>Price: ${post.price}</CardText>
-                    <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {profileState.user.username}</CardSubtitle>
-                    <Button>Buy Now</Button>
-                    <Button onClick={() => handleDeletePost(post._id)}>Delete</Button>
-                  </CardBody>
+      <Container fluid={true}>
+        <div className="row">
+          {
+            profileState.user.posts
+              ? profileState.user.posts.map(post => (
 
-                </Card>
-              </div>
-            </div>
-            </Container>
-          ))
-          : null
-      }
 
+                <div className="col-sm-4">
+                  <Card key={post._id}>
+                    <CardImg className="photo" src={post.image} alt="Card image cap" />
+                    <CardBody>
+                      <CardTitle tag='h5'>Title: {post.title}</CardTitle>
+                      <CardText>Description: {post.body}</CardText>
+                      <CardText>Price: ${post.price}</CardText>
+                      <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {profileState.user.username}</CardSubtitle>
+                      <Button>Buy Now</Button>
+                      <Button onClick={() => handleDeletePost(post._id)}>Delete</Button>
+                    </CardBody>
+
+                  </Card>
+                </div>
+
+
+              ))
+              : null
+          }</div>
+      </Container>
     </>
   )
 }
