@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
-// import {
-//   Button, Form, FormGroup, Label, Input,
-//   Card, CardText, CardBody,
-//   CardTitle, CardSubtitle
-// } from 'reactstrap'
+
+import {
+  Card, CardText, CardBody,
+  CardTitle, CardSubtitle, CardImg, Button, Container
+} from 'reactstrap'
 import Post from '../../utils/Post'
+import User from '../../utils/User'
 
 const Home = () => {
   const [postState, setPostState] = useState({
@@ -33,58 +34,24 @@ const Home = () => {
   }
 
   useEffect(() => {
-    Post.getAll()
-      .then(({ data: posts }) => {
-        console.log(posts)
-        setPostState({ ...postState, posts })
-      })
-      .catch(err => {
+    User.profile()
+      .then(({data:users})=>{
+        console.log(users)
+        users.map(user=>
+          user.posts.map(art=>console.log(art)))
+      }) 
+      .catch (err => {
         console.error(err)
-        window.location = '/login'
       })
   }, [])
-  return (
-    <>
-    <h1>Create Art Post</h1>
-      {/* <ReactFirebaseFileUpload /> */}
+return (
+  <>
+    <h1>Home Page</h1>
 
-      {/* <h1>Create A Post</h1>
-      <Form inline onSubmit={handleCreatePost}>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='title' className='mr-sm-2'>Title</Label>
-          <Input
-            type='text'
-            name='title'
-            value={postState.title}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='body' className='mr-sm-2'>Body</Label>
-          <Input
-            type='textarea'
-            name='body'
-            value={postState.body}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <Button onClick={handleCreatePost}>Create Post</Button>
-      </Form>
-      {
-        postState.posts.length
-          ? postState.posts.map(post => (
-            <Card key={post._id}>
-              <CardBody>
-                <CardTitle tag='h5'>{post.title}</CardTitle>
-                <CardSubtitle tag='h6' className='mb-2 text-muted'>posted by {post.author.username}</CardSubtitle>
-                <CardText>{post.body}</CardText>
-              </CardBody>
-            </Card>
-          ))
-          : null
-      } */}
-    </>
-  )
+
+
+  </>
+)
 }
 
 export default Home
