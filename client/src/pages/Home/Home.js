@@ -34,7 +34,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    User.profile()
+    User.getAllProfiles()
       .then(({data:users})=>{
         console.log(users)
         users.map(user=>
