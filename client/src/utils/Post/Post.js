@@ -13,13 +13,13 @@ const Post = {
     }
   }),
 
-  delete: post => axios.delete('/post/:id',{
+  delete: id => axios.delete(`/api/post/${id}`,{
     headers:{
       Authorization: `Bearer ${localStorage.getItem('user')}`
     }
   }),
 
-  update: post => axios.put('/posts/:id',post,{
+  update: (id,post) => axios.put(`/api/posts/${id}`,post,{
     headers:{
       Authorization: `Bearer ${localStorage.getItem('user')}`
     }

@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
+
 import {
-  Button, Card, CardText, CardBody,
-  CardTitle, CardSubtitle, Container, CardImg
+  Card, CardText, CardBody,
+  CardTitle, CardSubtitle, CardImg, Button, Container
 } from 'reactstrap'
-import User from '../../utils/User'
 import Post from '../../utils/Post'
+import User from '../../utils/User'
 
 const Home = () => {
   const [postState, setPostState] = useState({
@@ -33,48 +34,27 @@ const Home = () => {
   }
 
   useEffect(() => {
-    Post.getAll()
-      .then(({ data: posts }) => {
-        console.log(posts)
-        setPostState({ ...postState, posts })
-      })
-      .catch(err => {
-        console.error(err)
-        window.location = '/login'
-      })
+    User.profile()
+      .then(({ data }) => {
+        data.map(user => (
+          user.posts ? console.log(user.posts)
+            : null
+        ))
+  ))
+})
+      .catch (err => {
+  console.error(err)
+  window.location = '/login'
+})
   }, [])
-  
-  return (
-    <>
-      <Container fluid={true}>
-        <div className="row">
-          {
-            profileState.user.posts
-              ? profileState.user.posts.map(post => (
+return (
+  <>
+    <h1>Home Page</h1>
 
 
-                <div className="col-sm-4">
-                  <Card key={post._id}>
-                    <CardImg className="photo" src={post.image} alt="Card image cap" />
-                    <CardBody>
-                      <CardTitle tag='h5'>Title: {post.title}</CardTitle>
-                      <CardText>Description: {post.body}</CardText>
-                      <CardText>Price: ${post.price}</CardText>
-                      <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {profileState.user.username}</CardSubtitle>
-                      <Button>Buy Now</Button>
-                      <Button onClick={() => handleDeletePost(post._id)}>Delete</Button>
-                    </CardBody>
 
-                  </Card>
-                </div>
-
-
-              ))
-              : null
-          }</div>
-      </Container>
-    </>
-  )
+  </>
+)
 }
 
 export default Home
