@@ -61,11 +61,11 @@ const Profile = () => {
                   <Card className="cardartS" key={post._id}>
                     <CardImg className="photo" src={post.image} alt="Card image cap" />
                     <CardBody>
-                      <CardTitle tag='h5'>Title: {post.title}</CardTitle>
+                      <CardTitle className="font-weight-bold" tag='h5'>Title: {post.title}</CardTitle>
                       <CardText>Description: {post.body}</CardText>
                       <CardText>Price: ${post.price}</CardText>
                       <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {profileState.user.username}</CardSubtitle>
-                      <Button className="bttnM">Buy Now</Button>
+                      {/* <Button className="bttnM">Buy Now</Button> */}
                       <Button className="bttnM" onClick={() => handleDeletePost(post._id)}>Delete</Button>
                     </CardBody>
 
