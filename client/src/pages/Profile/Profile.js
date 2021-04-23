@@ -64,7 +64,7 @@ const Profile = () => {
                       <CardTitle className="font-weight-bold" tag='h5'>Title: {post.title}</CardTitle>
                       <CardText>Description: {post.body}</CardText>
                       <CardText>Price: ${post.price}</CardText>
-                      <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {profileState.user.username}</CardSubtitle>
+                      <CardSubtitle tag='h6' className='mb-2 text-muted'>Profile: {profileState.user.username}</CardSubtitle>
                       {/* <Button className="bttnM">Buy Now</Button> */}
                       <Button className="bttnM" onClick={() => handleDeletePost(post._id)}>Delete</Button>
                     </CardBody>

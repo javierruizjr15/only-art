@@ -38,6 +38,7 @@ const Createpost = () => {
 
   const handleUpload = (event) => {
     event.preventDefault()
+   
     const uploadTask = storage.ref(`images/${image.name}`).put(image)
     uploadTask.on(
       "state_changed",
@@ -71,6 +72,7 @@ const Createpost = () => {
               .catch(err => console.log(err))
             // collectionRef.add({ url, createdAt, artist: profileState })
             setUrl(url)
+            window.location = '/Profile'
           })
       }
     )
