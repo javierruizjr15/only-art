@@ -1,4 +1,28 @@
 .photo {
   height: 300px;
-  width: 300px;
+  width: 100%;
+}
+
+.cardinfoS {
+  margin-bottom: 25px;
+  margin-right: 5px;
+  background-color: lightblue!important;
+  border-width: 1px!important;
+}
+
+.cardartS {
+  margin-bottom: 25px;
+  margin-right: 5px;
+  border-width: 2px!important;
+}
+
+.bttnM {
+  margin-right: 7px;
+  background-color: lightblue!important;
+  color: black!important;
+}
+
+h1 {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }

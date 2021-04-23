@@ -11,7 +11,7 @@ import {
 import { Link } from 'react-router-dom'
 import User from '../../utils/User'
 import './AppBar.css'
-import artonly from './artonly.png'
+import onlyart from './onlyart.png'
 
 const AppBar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -30,10 +30,10 @@ const AppBar = () => {
       .catch(() => setIsLoggedIn(false))
   }, [])
   return (
-    <Navbar className="navbar" color='white' light expand='md'>
+    <Navbar className="navbar" light expand='md'>
       <Link to='/' className='link'>
         <NavbarBrand>
-          <img src={artonly} style={{ width: 100, marginTop: -7 }} />
+          <img src={onlyart} style={{ width: 100, marginTop: -7 }} />
         </NavbarBrand>
       </Link>
       <NavbarToggler onClick={toggle} />
