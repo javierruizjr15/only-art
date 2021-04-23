@@ -5,6 +5,15 @@ const passport = require('passport')
 const { Strategy: LocalStrategy } = require('passport-local')
 const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt')
 
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://artonly:<artonly>@cluster0.yy8cy.mongodb.net/artonly?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
 const app = express()
 const { User } = require('./models')
 
