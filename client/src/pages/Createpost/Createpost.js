@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import {
   Button, Form, FormGroup, Label, Input,
   Card, CardText, CardBody,
-  CardTitle, CardSubtitle, Col
+  CardTitle, CardSubtitle, Col, Row
 } from 'reactstrap'
 import Post from '../../utils/Post'
 // import ArtCard from '../../components/ArtCard'
@@ -92,55 +92,64 @@ const Createpost = () => {
       <h1 className="text-center">Create A Post</h1>
       {/* <Artcard /> */}
       <Form inline onSubmit={(event) => handleUpload(event)}>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='artistName' className='mr-sm-2'>Artist Name</Label>
-          <Input
-            type='text'
-            name='artistName'
-            value={postState.artistName}
-            onChange={handleInputChange}
-          />
+        <Col sm={10}>
+          <FormGroup Row>
+            <Label htmlFor='artistName' className='mr-sm-2'>Artist Name</Label>
+              <Input
+                type='text'
+                name='artistName'
+                value={postState.artistName}
+                onChange={handleInputChange}
+              />
+          </FormGroup>
+        </Col>
+        <Col sm={10}>
+        <FormGroup Row>
+          <Label htmlFor='title' className='mr-sm-2'>Title</Label>          
+            <Input
+              type='text'
+              name='title'
+              value={postState.title}
+              onChange={handleInputChange}
+            />
         </FormGroup>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='title' className='mr-sm-2'>Title</Label>
-          <Input
-            type='text'
-            name='title'
-            value={postState.title}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='body' className='mr-sm-2'>Body</Label>
-          <Input
-            type='textarea'
-            name='body'
-            value={postState.body}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='price' className='mr-sm-2'>$Price$</Label>
-          <Input
-            type='number'
-            name='price'
-            value={postState.price}
-            onChange={handleInputChange}
-          />
+        </Col>
+          <Col sm={10}>
+          <FormGroup Row>
+            <Label htmlFor='body' className='mr-sm-2'>Body</Label>
+              <Input
+                type='textarea'
+                name='body'
+                value={postState.body}
+                onChange={handleInputChange}
+              />
+          </FormGroup>
+        </Col>
+        <Col sm={10}>
+        <FormGroup Row>
+          <Label htmlFor='price' className='mr-sm-2'>$Price$</Label>         
+            <Input
+              type='number'
+              name='price'
+              value={postState.price}
+              onChange={handleInputChange}
+            />
         </FormGroup >
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <div>
-            <progress value={progress} max="100" />
-            <br />
-            <br />
-            <input type="file" onChange={handleChange} />
-            <br />
-            {url}
-          </div>
-        </FormGroup>
-        <Button onClick={(event) => handleUpload(event)}>Create Post</Button>
+        </Col>
+        <Col sm={10}>
+          <FormGroup Row>
+            <div>
+              <progress value={progress} max="100" /  >
+              <br />
+              <br />
+              <input type="file" onChange=  {handleChange} />
+              <br />
+              {url}
+            </div>
+          </FormGroup>
+          <Button onClick={(event) => handleUpload(event)}>Create Post</Button>
+        </Col>
       </Form>
-
       {/* {
         postState.posts.length
           ? postState.posts.map(post => (
