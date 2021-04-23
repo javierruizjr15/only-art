@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import {
   Card, CardText, CardBody,
-  CardTitle, CardSubtitle, CardImg, Button, Container
+  CardTitle, CardSubtitle, CardImg, Button, Container, Col, Row
 } from 'reactstrap'
 import User from '../../utils/User'
 import Post from '../../utils/Post'
@@ -34,17 +34,22 @@ const Profile = () => {
   return (
     <>
       {/* Rendering your profile info from mongodb */}
-      <h1>Your Info</h1>
-      <Card>
+      <h1 className="text-center">Your Info</h1>
+      <Row>
+      <Col sm="4" md={{ offset: 4 }}>
+        <Card body inverse color="info" className="text-center">
         <CardBody>
           <CardTitle tag='h5'>{profileState.user.name}</CardTitle>
-          <CardSubtitle tag='h6' className='mb-2 text-muted'>{profileState.user.email}</CardSubtitle>
+          <CardSubtitle tag='h6' className='mb-2'>{profileState.user.email}</CardSubtitle>
           <CardText>{profileState.user.username}</CardText>
         </CardBody>
       </Card>
+      </Col>
+      </Row>
       <hr />
+
       {/* Rendering posts from mongodb */}
-      <h1>Your Posts</h1>
+      <h1 className="text-center">Your Posts</h1>
       <Container fluid={true}>
         <div className="row">
           {
