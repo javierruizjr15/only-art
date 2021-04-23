@@ -39,6 +39,7 @@ const Createpost = () => {
 
   const handleUpload = (event) => {
     event.preventDefault()
+   
     const uploadTask = storage.ref(`images/${image.name}`).put(image)
     uploadTask.on(
       "state_changed",
@@ -58,6 +59,7 @@ const Createpost = () => {
           .getDownloadURL()
           .then(url => {
             let newArt = {
+              artistName: postState.artistName,
               title: postState.title,
               image: url,
               body: postState.body,
@@ -71,22 +73,23 @@ const Createpost = () => {
               .catch(err => console.log(err))
             // collectionRef.add({ url, createdAt, artist: profileState })
             setUrl(url)
+            window.location = '/Profile'
           })
       }
     )
   }
 
-  useEffect(() => {
-    Post.getAll()
-      .then(({ data: posts }) => {
-        console.log(posts)
-        setPostState({ ...postState, posts })
-      })
-      .catch(err => {
-        console.error(err) 
-        window.location = '/login'
-      })
-  }, [])
+  // useEffect(() => {
+  //   Post.getAll()
+  //     .then(({ data: posts }) => {
+  //       console.log(posts)
+  //       setPostState({ ...postState, posts })
+  //     })
+  //     .catch(err => {
+  //       console.error(err) 
+  //       window.location = '/login'
+  //     })
+  // }, [])
 
   return (
     <>
