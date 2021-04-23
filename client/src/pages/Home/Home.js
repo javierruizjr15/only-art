@@ -34,12 +34,11 @@ const Home = () => {
   }
 
   useEffect(() => {
-    User.getAllProfiles()
-      .then(({data:users})=>{
-        console.log(users)
-        users.map(user=>
-          user.posts.map(art=>console.log(art)))
-      }) 
+    Post.getAll()
+      .then(({data:posts})=>{
+        console.log(posts)
+       
+      })
       .catch (err => {
         console.error(err)
       })

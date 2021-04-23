@@ -13,10 +13,10 @@ router.get('/posts', passport.authenticate('jwt'), (req, res) => {
 router.post('/posts', passport.authenticate('jwt'), (req, res) => {
   Post.create({
     artist: req.user._id,
+    artistName: req.body.artistName,
     title: req.body.title,
     image: req.body.image,
     body: req.body.body,
-    category: req.body.category,
     price: req.body.price
   })
 
@@ -26,10 +26,10 @@ router.post('/posts', passport.authenticate('jwt'), (req, res) => {
         .then(() => {
           res.json({
             id: post._id,
+            artistName: post.artistName,
             title: post.title,
             image: post.image,
             body: post.body,
-            category: post.category,
             price: post.price
           })
         })
