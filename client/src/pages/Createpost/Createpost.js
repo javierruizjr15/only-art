@@ -91,18 +91,7 @@ const Createpost = () => {
       <h1 className="text-center">Create A Post</h1>
       {/* <Artcard /> */}
       <Container className="formB">
-        <Form inline onSubmit={(event) => handleUpload(event)}>
-          <Col className="rowDiv" sm={10}>
-            <FormGroup Row>
-              <Label htmlFor='artistName' className='mr-sm-2'>Artist Name</Label>
-              <Input
-                type='text'
-                name='artistName'
-                value={postState.artistName}
-                onChange={handleInputChange}
-              />
-            </FormGroup>
-          </Col>
+        <Form onSubmit={(event) => handleUpload(event)}>
           <Col className="rowDiv" sm={10}>
             <FormGroup Row>
               <Label htmlFor='title' className='mr-sm-2'>Title</Label>
@@ -127,7 +116,7 @@ const Createpost = () => {
           </Col>
           <Col className="rowDiv" sm={10}>
             <FormGroup Row>
-              <Label htmlFor='price' className='mr-sm-2'>$Price$</Label>
+              <Label htmlFor='price' className='mr-sm-2'>Price</Label>
               <Input
                 type='number'
                 name='price'
@@ -135,6 +124,17 @@ const Createpost = () => {
                 onChange={handleInputChange}
               />
             </FormGroup >
+          </Col>
+          <Col className="rowDiv" sm={10}>
+            <FormGroup Row>
+              <Label htmlFor='artistName' className='mr-sm-2'>Artist Name</Label>
+              <Input
+                type='text'
+                name='artistName'
+                value={postState.artistName}
+                onChange={handleInputChange}
+              />
+            </FormGroup>
           </Col>
           <Col className="rowDiv" sm={10}>
             <FormGroup Row>
@@ -151,6 +151,7 @@ const Createpost = () => {
           </Col>
         </Form>
       </Container>
+      
       {/* {
         postState.posts.length
           ? postState.posts.map(post => (

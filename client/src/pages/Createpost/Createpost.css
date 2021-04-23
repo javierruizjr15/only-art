@@ -1,7 +1,7 @@
 .formB {
-  border-width: 2px!important;
+  border-width: 0.5;
   background-color: rgba(173, 216, 230, 0.178);
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .rowDiv {
