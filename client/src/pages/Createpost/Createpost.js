@@ -12,6 +12,7 @@ import User from '../../utils/User'
 
 const Createpost = () => {
   const [postState, setPostState] = useState({
+    artistName: '',
     title: '',
     body: '',
     price: '',
@@ -91,6 +92,15 @@ const Createpost = () => {
       <h1 className="text-center">Create A Post</h1>
       {/* <Artcard /> */}
       <Form inline onSubmit={(event) => handleUpload(event)}>
+        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
+          <Label htmlFor='artistName' className='mr-sm-2'>Artist Name</Label>
+          <Input
+            type='text'
+            name='artistName'
+            value={postState.artistName}
+            onChange={handleInputChange}
+          />
+        </FormGroup>
         <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
           <Label htmlFor='title' className='mr-sm-2'>Title</Label>
           <Input
