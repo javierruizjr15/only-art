@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import {
   Button, Form, FormGroup, Label, Input,
   Card, CardText, CardBody,
-  CardTitle, CardSubtitle
+  CardTitle, CardSubtitle, Col
 } from 'reactstrap'
 import Post from '../../utils/Post'
 // import ArtCard from '../../components/ArtCard'
@@ -88,7 +88,7 @@ const Createpost = () => {
 
   return (
     <>
-      <h1>Create A Post</h1>
+      <h1 className="text-center">Create A Post</h1>
       {/* <Artcard /> */}
       <Form inline onSubmit={(event) => handleUpload(event)}>
         <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
@@ -130,6 +130,7 @@ const Createpost = () => {
         </FormGroup>
         <Button onClick={(event) => handleUpload(event)}>Create Post</Button>
       </Form>
+      
       {
         postState.posts.length
           ? postState.posts.map(post => (
