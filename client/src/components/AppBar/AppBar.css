@@ -1,0 +1,15 @@
+.navbar {
+  border-bottom: 1px solid;
+  color: black;
+  background-color: lightblue;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: inherit;
+}
