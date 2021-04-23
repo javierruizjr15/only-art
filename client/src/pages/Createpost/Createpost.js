@@ -140,8 +140,8 @@ const Createpost = () => {
         </FormGroup>
         <Button onClick={(event) => handleUpload(event)}>Create Post</Button>
       </Form>
-      
-      {
+
+      {/* {
         postState.posts.length
           ? postState.posts.map(post => (
             <Card key={post._id}>
@@ -153,7 +153,7 @@ const Createpost = () => {
             </Card>
           ))
           : null
-      }
+      } */}
     </>
   )
 }
