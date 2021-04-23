@@ -9,8 +9,6 @@ import User from '../../utils/User'
 
 const Home = () => {
   const [postState, setPostState] = useState({
-    title: '',
-    body: '',
     posts: []
   })
 
@@ -45,7 +43,7 @@ const Home = () => {
       })
   }, [])
 
-  
+
 return (
   <>
     <h1>Home Page</h1>
