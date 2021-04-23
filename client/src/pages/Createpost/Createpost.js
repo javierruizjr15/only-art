@@ -57,6 +57,7 @@ const Createpost = () => {
           .getDownloadURL()
           .then(url => {
             let newArt = {
+              artistName: postState.artistName,
               title: postState.title,
               image: url,
               body: postState.body,
@@ -75,17 +76,17 @@ const Createpost = () => {
     )
   }
 
-  useEffect(() => {
-    Post.getAll()
-      .then(({ data: posts }) => {
-        console.log(posts)
-        setPostState({ ...postState, posts })
-      })
-      .catch(err => {
-        console.error(err) 
-        window.location = '/login'
-      })
-  }, [])
+  // useEffect(() => {
+  //   Post.getAll()
+  //     .then(({ data: posts }) => {
+  //       console.log(posts)
+  //       setPostState({ ...postState, posts })
+  //     })
+  //     .catch(err => {
+  //       console.error(err) 
+  //       window.location = '/login'
+  //     })
+  // }, [])
 
   return (
     <>
