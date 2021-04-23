@@ -6,6 +6,7 @@ const Post = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
+  artistName: String,
   title: String,
   image: String,
   body: String,
