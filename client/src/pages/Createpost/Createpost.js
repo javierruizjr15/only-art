@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react'
 import {
-  Button, Form, FormGroup, Label, Input, Col, Container } from 'reactstrap'
+  Button, Form, FormGroup, Label, Input,
+  Card, CardText, CardBody,
+  CardTitle, CardSubtitle, Col, Row, Container
+} from 'reactstrap'
 import Post from '../../utils/Post'
 // import ArtCard from '../../components/ArtCard'
 // import { render } from "react-dom"
 import { storage } from "../../utils/firebase"
 import User from '../../utils/User'
+import "./Createpost.css"
 
 const Createpost = () => {
   const [postState, setPostState] = useState({
@@ -35,6 +39,7 @@ const Createpost = () => {
 
   const handleUpload = (event) => {
     event.preventDefault()
+   
     const uploadTask = storage.ref(`images/${image.name}`).put(image)
     uploadTask.on(
       "state_changed",
@@ -54,6 +59,7 @@ const Createpost = () => {
           .getDownloadURL()
           .then(url => {
             let newArt = {
+              artistName: postState.artistName,
               title: postState.title,
               image: url,
               body: postState.body,
@@ -67,30 +73,32 @@ const Createpost = () => {
               .catch(err => console.log(err))
             // collectionRef.add({ url, createdAt, artist: profileState })
             setUrl(url)
+            window.location = '/Profile'
           })
       }
     )
   }
 
-  useEffect(() => {
-    Post.getAll()
-      .then(({ data: posts }) => {
-        console.log(posts)
-        setPostState({ ...postState, posts })
-      })
-      .catch(err => {
-        console.error(err) 
-        window.location = '/login'
-      })
-  }, [])
+  // useEffect(() => {
+  //   Post.getAll()
+  //     .then(({ data: posts }) => {
+  //       console.log(posts)
+  //       setPostState({ ...postState, posts })
+  //     })
+  //     .catch(err => {
+  //       console.error(err) 
+  //       window.location = '/login'
+  //     })
+  // }, [])
 
   return (
     <>
     <Container>
       <h1 className="text-center">Create A Post</h1>
       {/* <Artcard /> */}
+      <Container className="formB">
       <Form inline onSubmit={(event) => handleUpload(event)}>
-        <Col sm={10}>
+        <Col className="rowDiv" sm={10}>
           <FormGroup Row>
             <Label htmlFor='artistName' className='mr-sm-2'>Artist Name</Label>
               <Input
@@ -101,7 +109,7 @@ const Createpost = () => {
               />
           </FormGroup>
         </Col>
-        <Col sm={10}>
+        <Col className="rowDiv" sm={10}>
         <FormGroup Row>
           <Label htmlFor='title' className='mr-sm-2'>Title</Label>          
             <Input
@@ -112,7 +120,7 @@ const Createpost = () => {
             />
         </FormGroup>
         </Col>
-          <Col sm={10}>
+        <Col className="rowDiv" sm={10}>
           <FormGroup Row>
             <Label htmlFor='body' className='mr-sm-2'>Body</Label>
               <Input
@@ -123,7 +131,7 @@ const Createpost = () => {
               />
           </FormGroup>
         </Col>
-        <Col sm={10}>
+        <Col className="rowDiv" sm={10}>
         <FormGroup Row>
           <Label htmlFor='price' className='mr-sm-2'>$Price$</Label>         
             <Input
@@ -134,23 +142,21 @@ const Createpost = () => {
             />
         </FormGroup >
         </Col>
-        <Col sm={10}>
+        <Col className="rowDiv" sm={10}>
           <FormGroup Row>
             <div>
               <progress value={progress} max="100" /  >
               <br />
               <br />
-              <input type="file" onChange=  {handleChange} />
+                <input className="rowDiv" type="file" onChange=  {handleChange} />
               <br />
               {url}
             </div>
           </FormGroup>
-          <Button onClick={(event) => handleUpload(event)}>Create Post</Button>
+          <Button className="bttnM" onClick={(event) => handleUpload(event)}>Create Post</Button>
         </Col>
       </Form>
       </Container>
-
-
       {/* {
         postState.posts.length
           ? postState.posts.map(post => (
