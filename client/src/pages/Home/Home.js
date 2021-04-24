@@ -51,7 +51,8 @@ const Home = () => {
   }, [])
 return (
   <>
-    <h1 className="text-center">Home Page</h1>
+    <h1 className="text-center">Art Only</h1>
+    <h6 className="text-center">Where its Art Only</h6>
     <Container fluid={true}>
       <div className="row">
         {
