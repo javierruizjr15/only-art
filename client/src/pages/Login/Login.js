@@ -86,7 +86,7 @@ const Login = () => {
             onChange={handleInputChange}
           />
         </FormGroup>
-        <Button onClick={handleRegister}>Register</Button>
+        <Button className="bttnM" onClick={handleRegister}>Register</Button>
       </Form>
       <h1>Login</h1>
       <Form inline onSubmit={handleLogin}>
@@ -108,7 +108,7 @@ const Login = () => {
             onChange={handleInputChange}
           />
         </FormGroup>
-        <Button onClick={handleLogin}>Login</Button>
+        <Button className="bttnM" onClick={handleLogin}>Login</Button>
       </Form>
     </>
   )
