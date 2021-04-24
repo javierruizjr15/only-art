@@ -10,7 +10,6 @@ import Post from '../../utils/Post'
 import { storage } from "../../utils/firebase"
 import User from '../../utils/User'
 import "./Createpost.css"
-
 const Createpost = () => {
   const [postState, setPostState] = useState({
     artistName: '',
@@ -19,7 +18,7 @@ const Createpost = () => {
     price: '',
     posts: []
   })
-  
+
   const [image, setImage] = useState(null)
   const [url, setUrl] = useState("")
   const [progress, setProgress] = useState(0)
@@ -27,7 +26,6 @@ const Createpost = () => {
   const [profileState, setProfileState] = useState({
     user: {}
   })
-
   const handleInputChange = ({ target }) => {
     setPostState({ ...postState, [target.name]: target.value })
   }
@@ -36,10 +34,9 @@ const Createpost = () => {
       setImage(e.target.files[0])
     }
   }
-
   const handleUpload = (event) => {
     event.preventDefault()
-   
+
     const uploadTask = storage.ref(`images/${image.name}`).put(image)
     uploadTask.on(
       "state_changed",
@@ -64,7 +61,7 @@ const Createpost = () => {
               image: url,
               body: postState.body,
               price: postState.price
-          
+
             }
             User.saveArt(newArt)
               .then(({ data }) => {
@@ -78,7 +75,6 @@ const Createpost = () => {
       }
     )
   }
-
   // useEffect(() => {
   //   Post.getAll()
   //     .then(({ data: posts }) => {
@@ -90,72 +86,72 @@ const Createpost = () => {
   //       window.location = '/login'
   //     })
   // }, [])
-
   return (
     <>
       <h1 className="text-center">Create A Post</h1>
       {/* <Artcard /> */}
       <Container className="formB">
-      <Form inline onSubmit={(event) => handleUpload(event)}>
-        <Col className="rowDiv" sm={10}>
-          <FormGroup Row>
-            <Label htmlFor='artistName' className='mr-sm-2'>Artist Name</Label>
+        <Form onSubmit={(event) => handleUpload(event)}>
+          <Col className="rowDiv" sm={10}>
+            <FormGroup Row>
+              <Label htmlFor='title' className='mr-sm-2'>Title</Label>
               <Input
                 type='text'
-                name='artistName'
-                value={postState.artistName}
+                name='title'
+                value={postState.title}
                 onChange={handleInputChange}
               />
-          </FormGroup>
-        </Col>
-        <Col className="rowDiv" sm={10}>
-        <FormGroup Row>
-          <Label htmlFor='title' className='mr-sm-2'>Title</Label>          
-            <Input
-              type='text'
-              name='title'
-              value={postState.title}
-              onChange={handleInputChange}
-            />
-        </FormGroup>
-        </Col>
-        <Col className="rowDiv" sm={10}>
-          <FormGroup Row>
-            <Label htmlFor='body' className='mr-sm-2'>Body</Label>
+            </FormGroup>
+          </Col>
+          <Col className="rowDiv" sm={10}>
+            <FormGroup Row>
+              <Label htmlFor='body' className='mr-sm-2'>Body</Label>
               <Input
                 type='textarea'
                 name='body'
                 value={postState.body}
                 onChange={handleInputChange}
               />
-          </FormGroup>
-        </Col>
-        <Col className="rowDiv" sm={10}>
-        <FormGroup Row>
-          <Label htmlFor='price' className='mr-sm-2'>$Price$</Label>         
-            <Input
-              type='number'
-              name='price'
-              value={postState.price}
-              onChange={handleInputChange}
-            />
-        </FormGroup >
-        </Col>
-        <Col className="rowDiv" sm={10}>
-          <FormGroup Row>
-            <div>
-              <progress value={progress} max="100" /  >
-              <br />
-              <br />
-                <input className="rowDiv" type="file" onChange=  {handleChange} />
-              <br />
-              {url}
-            </div>
-          </FormGroup>
-          <Button className="bttnM" onClick={(event) => handleUpload(event)}>Create Post</Button>
-        </Col>
-      </Form>
+            </FormGroup>
+          </Col>
+          <Col className="rowDiv" sm={10}>
+            <FormGroup Row>
+              <Label htmlFor='price' className='mr-sm-2'>Price</Label>
+              <Input
+                type='number'
+                name='price'
+                value={postState.price}
+                onChange={handleInputChange}
+              />
+            </FormGroup >
+          </Col>
+          <Col className="rowDiv" sm={10}>
+            <FormGroup Row>
+              <Label htmlFor='artistName' className='mr-sm-2'>Artist Name</Label>
+              <Input
+                type='text'
+                name='artistName'
+                value={postState.artistName}
+                onChange={handleInputChange}
+              />
+            </FormGroup>
+          </Col>
+          <Col className="rowDiv" sm={10}>
+            <FormGroup Row>
+              <div>
+                <progress value={progress} max="100" />
+                <br />
+                <br />
+                <input className="rowDiv" type="file" onChange={handleChange} />
+                <br />
+                {url}
+              </div>
+            </FormGroup>
+            <Button className="bttnM" onClick={(event) => handleUpload(event)}>Create Post</Button>
+          </Col>
+        </Form>
       </Container>
+      
       {/* {
         postState.posts.length
           ? postState.posts.map(post => (
@@ -172,5 +168,4 @@ const Createpost = () => {
     </>
   )
 }
-
 export default Createpost
