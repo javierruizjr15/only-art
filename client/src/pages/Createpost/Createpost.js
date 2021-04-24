@@ -96,7 +96,7 @@ const Createpost = () => {
       <h1 className="text-center">Create A Post</h1>
       {/* <Artcard /> */}
       <Container className="formB">
-      <Form inline onSubmit={(event) => handleUpload(event)}>
+      <Form onSubmit={(event) => handleUpload(event)}>
         <Col className="rowDiv" sm={10}>
           <FormGroup Row>
             <Label htmlFor='artistName' className='mr-sm-2'>Artist Name</Label>
