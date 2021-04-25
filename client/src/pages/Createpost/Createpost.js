@@ -88,7 +88,7 @@ const Createpost = () => {
   // }, [])
   return (
     <>
-      <h1 className="text-center">Create A Post</h1>
+      <h1 className="text-center">Create Art Post for Sale</h1>
       {/* <Artcard /> */}
       <Container className="formB">
       <Form onSubmit={(event) => handleUpload(event)}>

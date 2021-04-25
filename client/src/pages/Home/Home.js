@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 import {
   Card, CardText, CardBody,
-  CardTitle, CardSubtitle, CardImg, Button, Container
+  CardTitle, CardSubtitle, CardImg, Button, Container, Col
 } from 'reactstrap'
 import Post from '../../utils/Post'
 import User from '../../utils/User'
@@ -61,7 +61,7 @@ const Home = () => {
               ? postState.posts.map(post => (
 
 
-                <div className="col-sm-4 ">
+                <Col sm="4" xl="3">
                   <Card className="cardartS" key={post._id}>
                     <CardImg className="photo" src={post.image} alt="Card image cap" />
                     <CardBody>
@@ -74,7 +74,7 @@ const Home = () => {
                     </CardBody>
 
                   </Card>
-                </div>
+                </Col>
 
 
               ))
