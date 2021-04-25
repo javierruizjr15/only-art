@@ -23,10 +23,10 @@ const App = () => {
         <AppBar />
         <Switch>
           <Route exact path='/'>
-            <Login />
+            <Home />
           </Route>
           <Route path='/login'>
-            <Home />
+            <Login />
           </Route>
           <Route path='/profile'>
             <Profile />
