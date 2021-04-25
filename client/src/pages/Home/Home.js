@@ -47,6 +47,7 @@ const Home = () => {
 
       .catch(err => {
         console.error(err)
+        window.location = '../login'
       })
   }, [])
   return (

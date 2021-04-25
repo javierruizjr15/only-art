@@ -94,7 +94,7 @@ const Createpost = () => {
       <Form onSubmit={(event) => handleUpload(event)}>
         <Col className="rowDiv" sm={10}>
           <FormGroup Row>
-            <Label htmlFor='artistName' className='mr-sm-2'>Artist Name</Label>
+            <Label htmlFor='artistName' className='mr-sm-2'>Title</Label>
               <Input
                 type='text'
                 name='title'
@@ -105,7 +105,7 @@ const Createpost = () => {
           </Col>
           <Col className="rowDiv" sm={10}>
             <FormGroup Row>
-              <Label htmlFor='body' className='mr-sm-2'>Body</Label>
+              <Label htmlFor='body' className='mr-sm-2'>Description</Label>
               <Input
                 type='textarea'
                 name='body'
