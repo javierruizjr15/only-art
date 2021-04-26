@@ -50,6 +50,29 @@ const Login = () => {
 
   return (
     <>
+      <h1>Login</h1>
+      <Form inline onSubmit={handleLogin}>
+        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
+          <Label htmlFor='un' className='mr-sm-2'>Username</Label>
+          <Input
+            type='text'
+            name='un'
+            value={loginState.un}
+            onChange={handleInputChange}
+          />
+        </FormGroup>
+        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
+          <Label htmlFor='pw' className='mr-sm-2'>Password</Label>
+          <Input
+            type='password'
+            name='pw'
+            value={loginState.pw}
+            onChange={handleInputChange}
+          />
+        </FormGroup>
+        <Button className="bttnM" onClick={handleLogin}>Login</Button>
+      </Form>
+
       <h1>Register</h1>
       <Form inline onSubmit={handleRegister}>
         <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
@@ -90,28 +113,8 @@ const Login = () => {
         </FormGroup>
         <Button className="bttnM" onClick={handleRegister}>Register</Button>
       </Form>
-      <h1>Login</h1>
-      <Form inline onSubmit={handleLogin}>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='un' className='mr-sm-2'>Username</Label>
-          <Input
-            type='text'
-            name='un'
-            value={loginState.un}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='pw' className='mr-sm-2'>Password</Label>
-          <Input
-            type='password'
-            name='pw'
-            value={loginState.pw}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <Button className="bttnM" onClick={handleLogin}>Login</Button>
-      </Form>
+
+      
     </>
   )
 }
