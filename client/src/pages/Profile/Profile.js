@@ -51,7 +51,7 @@ const Profile = () => {
 
       {/* Rendering posts from mongodb */}
       <h1 className="text-center">Your Posts</h1>
-      <Container  fluid="lg">
+      <Container className="text-center"  fluid="lg">
         <div className="row">
           {
             profileState.user.posts
