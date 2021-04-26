@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Form, FormGroup, Label, Input, Container, Col, Row } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input, Container, Col, Row, } from 'reactstrap'
 import User from '../../utils/User'
 // import Artcard from '../../components/ArtCard'
 
@@ -53,7 +53,7 @@ const Login = () => {
     <>
       <h1 className="text-center">Login</h1>
      <Row>
-        <Col className="login" sm="4" md={{ offset: 4 }}>
+        <Col className="login border border-secondary" sm="4" md={{ offset: 4 }}>
         <Form onSubmit={handleLogin}>
           <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
             <Label htmlFor='un' className='mr-sm-2'>Username</Label>
@@ -82,10 +82,13 @@ const Login = () => {
       </Col>
       </Row>
 
+      <Container row-cols-xl="3" className="text-center" fluid="lg" >
+        <hr />
+      </Container>
 
       <h1 className="text-center">Register</h1>
       <Row>
-        <Col className="login" sm="4" md={{ offset: 4 }}>
+        <Col className="login border border-secondary" sm="4" md={{ offset: 4 }}>
         <Form onSubmit={handleRegister}>
             <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
             <Label htmlFor='name' className='mr-sm-2'>Name</Label>
