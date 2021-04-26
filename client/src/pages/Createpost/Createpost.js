@@ -139,15 +139,21 @@ const Createpost = () => {
           <Col className="rowDiv" sm={10}>
             <FormGroup Row>
               <div>
-                <progress value={progress} max="100" />
+
+                
+                  <progress className="" value={progress} max="100" />
+                
+
                 <br />
-                <br />
-                <input className="rowDiv" type="file" onChange={handleChange} />
+                <br />             
+                <input className="rowDiv" type="file" onChange={handleChange} />                
                 <br />
                 {url}
               </div>
             </FormGroup>
+
             <Button className="bttnM" onClick={(event) => handleUpload(event)}>Create Post</Button>
+
           </Col>
         </Form>
       </Container>
