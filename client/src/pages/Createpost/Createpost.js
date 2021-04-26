@@ -125,7 +125,7 @@ const Createpost = () => {
               />
             </FormGroup >
           </Col>
-          <Col className="rowDiv" sm={10}>
+          {/* <Col className="rowDiv" sm={10}>
             <FormGroup Row>
               <Label htmlFor='artistName' className='mr-sm-2'>Artist Name</Label>
               <Input
@@ -135,7 +135,7 @@ const Createpost = () => {
                 onChange={handleInputChange}
               />
             </FormGroup>
-          </Col>
+          </Col> */}
           <Col className="rowDiv" sm={10}>
             <FormGroup Row>
               <div>

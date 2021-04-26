@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react'
 
 import {
   Card, CardText, CardBody,
-  CardTitle, CardSubtitle, CardImg, Button, Container, Col, Row
+  CardTitle, CardSubtitle, CardImg, Button, Container, Col, Popover, PopoverHeader, PopoverBody, UncontrolledPopover
 } from 'reactstrap'
 import Post from '../../utils/Post'
 import User from '../../utils/User'
+
 
 const Home = () => {
   const [postState, setPostState] = useState({
@@ -90,10 +91,18 @@ const Home = () => {
                     <CardBody>
                       <CardTitle className="font-weight-bold" tag='h5'>Title: {bingo.title}</CardTitle>
                       <CardText>Description: {bingo.body}</CardText>
-                      <CardText>Price: ${bingo.price}</CardText>
+                      <CardText>Price: ${bingo.price}</CardText>                   
                       <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {bingo.artistName}</CardSubtitle>
 
-                      <Button className="bttnM">Buy Now</Button>
+                      <div>
+                        <Button className="bttnM" id="UncontrolledPopover" type="button"  >Buy Now</Button>
+                        <UncontrolledPopover placement="bottom" target="UncontrolledPopover">
+                          <PopoverHeader>{bingo.artistName}</PopoverHeader>
+                          <PopoverBody>chill</PopoverBody>
+                        </UncontrolledPopover>
+
+                      </div>
+
                     </CardBody>
                   </Card>
                 </Col>
