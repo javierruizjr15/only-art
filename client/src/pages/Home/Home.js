@@ -6,12 +6,15 @@ import {
 } from 'reactstrap'
 import Post from '../../utils/Post'
 import User from '../../utils/User'
+import Profile from '../Profile'
+
 
 
 const Home = () => {
   const [postState, setPostState] = useState({
     title: '',
     body: '',
+    email:'',
     posts: []
   })
 
@@ -23,13 +26,14 @@ const Home = () => {
     event.preventDefault()
     Post.create({
       title: postState.title,
-      body: postState.body
+      body: postState.body,
+      email: postState.email
     })
       .then(({ data: post }) => {
         console.log(post)
         const posts = [...postState.posts]
         posts.push(post)
-        setPostState({ ...postState, posts, title: '', body: '' })
+        setPostState({ ...postState, posts, title: '', body: '', email: '' })
       })
       .catch(err => console.error(err))
   }
@@ -93,12 +97,13 @@ const Home = () => {
                       <CardText>Description: {bingo.body}</CardText>
                       <CardText>Price: ${bingo.price}</CardText>                   
                       <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {bingo.artistName}</CardSubtitle>
+                      <CardText>Contact Email: {bingo.email}</CardText>
 
                       <div>
                         <Button className="bttnM" id="UncontrolledPopover" type="button"  >Buy Now</Button>
                         <UncontrolledPopover placement="bottom" target="UncontrolledPopover">
-                          <PopoverHeader>{bingo.artistName}</PopoverHeader>
-                          <PopoverBody>chill</PopoverBody>
+                          <PopoverHeader className="text-center">Contact Artist Email</PopoverHeader>
+                          <PopoverBody>Contact Artist via Email to buy this art</PopoverBody>
                         </UncontrolledPopover>
 
                       </div>

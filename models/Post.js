@@ -11,6 +11,7 @@ const Post = new Schema({
   image: String,
   body: String,
   price: Number,
+  email: String,
 })
 
 module.exports = model('Post', Post)

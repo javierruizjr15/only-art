@@ -66,6 +66,7 @@ const Profile = () => {
                       <CardText>Description: {post.body}</CardText>
                       <CardText>Price: ${post.price}</CardText>
                       <CardSubtitle tag='h6' className='mb-2 text-muted'>Profile: {profileState.user.username}</CardSubtitle>
+                      <CardText>Contact Email: {post.email}</CardText>
                       {/* <Button className="bttnM">Buy Now</Button> */}
                       <Button className="bttnM" onClick={() => handleDeletePost(post._id)}>Delete</Button>
                     </CardBody>

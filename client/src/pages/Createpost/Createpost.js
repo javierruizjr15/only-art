@@ -21,6 +21,7 @@ const Createpost = () => {
     title: '',
     body: '',
     price: '',
+    email:'',
     posts: []
   })
 
@@ -65,7 +66,8 @@ const Createpost = () => {
               title: postState.title,
               image: url,
               body: postState.body,
-              price: postState.price
+              price: postState.price,
+              email: postState.email
 
             }
             User.saveArt(newArt)
@@ -112,13 +114,14 @@ const Createpost = () => {
             <FormGroup Row>
               <Label htmlFor='body' className='mr-sm-2'>Description</Label>
               <Input
-                type='textarea'
+                type='text'
                 name='body'
                 value={postState.body}
                 onChange={handleInputChange}
               />
             </FormGroup>
           </Col>
+
           <Col className="rowDiv" sm={10}>
             <FormGroup Row>
               <Label htmlFor='price' className='mr-sm-2'>Price</Label>
@@ -126,6 +129,17 @@ const Createpost = () => {
                 type='number'
                 name='price'
                 value={postState.price}
+                onChange={handleInputChange}
+              />
+            </FormGroup >
+          </Col>
+          <Col className="rowDiv" sm={10}>
+            <FormGroup Row>
+              <Label htmlFor='price' className='mr-sm-2'>Contact Email</Label>
+              <Input
+                type='text'
+                name='email'
+                value={postState.email}
                 onChange={handleInputChange}
               />
             </FormGroup >
