@@ -69,9 +69,6 @@ const AppBar = () => {
               <NavItem>
                 <NavLink color="black" onClick={handleLogOut}>Log Out</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink color='black' onClick='/cart' className='cart'> <CartIcon/> Cart </NavLink>
-              </NavItem>
             </>
           }
         </Nav>
