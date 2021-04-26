@@ -3,6 +3,13 @@
   width: 100%;
 }
 
+.login {
+  margin-bottom: 25px;
+  margin-right: 5px;
+  background-color: rgba(173, 216, 230, 0.363)!important;
+  border-width: 1px!important;
+}
+
 .cardinfoS {
   margin-bottom: 25px;
   margin-right: 5px;

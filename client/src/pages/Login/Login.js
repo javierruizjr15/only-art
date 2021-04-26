@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input, Container, Col, Row } from 'reactstrap'
 import User from '../../utils/User'
 // import Artcard from '../../components/ArtCard'
 
@@ -29,7 +29,7 @@ const Login = () => {
       password: loginState.password
     })
       .then(() => {
-        alert('User registered!')
+        alert(`Welcome ${loginState.name}, You are now registered with Art Only, where it's art only.`)
         setLoginState({ ...loginState, name: '', email: '', username: '', password: '' })
       })
       .catch(err => console.error(err))
@@ -50,71 +50,84 @@ const Login = () => {
 
   return (
     <>
-      <h1>Login</h1>
-      <Form inline onSubmit={handleLogin}>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='un' className='mr-sm-2'>Username</Label>
-          <Input
-            type='text'
-            name='un'
-            value={loginState.un}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='pw' className='mr-sm-2'>Password</Label>
-          <Input
-            type='password'
-            name='pw'
-            value={loginState.pw}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <Button className="bttnM" onClick={handleLogin}>Login</Button>
-      </Form>
+      <h1 className="text-center">Login</h1>
+     <Row>
+        <Col className="login" sm="4" md={{ offset: 4 }}>
+        <Form onSubmit={handleLogin}>
+          <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
+            <Label htmlFor='un' className='mr-sm-2'>Username</Label>
+            <Input
+              type='text'
+              name='un'
+              value={loginState.un}
+              onChange={handleInputChange}
+            />
+          </FormGroup>
+          <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
+            <Label htmlFor='pw' className='mr-sm-2'>Password</Label>
+            <Input
+              type='password'
+              name='pw'
+              value={loginState.pw}
+              onChange={handleInputChange}
+            />
+          </FormGroup>
+          
+            <Col className="text-center">
+            <Button  className="bttnM" onClick={handleLogin}>Login</Button>
+            </Col>
+            
+        </Form>
+      </Col>
+      </Row>
 
-      <h1>Register</h1>
-      <Form inline onSubmit={handleRegister}>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='name' className='mr-sm-2'>Name</Label>
-          <Input
-            type='text'
-            name='name'
-            value={loginState.name}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='email' className='mr-sm-2'>email</Label>
-          <Input
-            type='email'
-            name='email'
-            value={loginState.email}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='username' className='mr-sm-2'>Username</Label>
-          <Input
-            type='text'
-            name='username'
-            value={loginState.username}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-          <Label htmlFor='password' className='mr-sm-2'>Password</Label>
-          <Input
-            type='password'
-            name='password'
-            value={loginState.password}
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-        <Button className="bttnM" onClick={handleRegister}>Register</Button>
-      </Form>
 
-      
+      <h1 className="text-center">Register</h1>
+      <Row>
+        <Col className="login" sm="4" md={{ offset: 4 }}>
+        <Form onSubmit={handleRegister}>
+            <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
+            <Label htmlFor='name' className='mr-sm-2'>Name</Label>
+            <Input
+              type='text'
+              name='name'
+              value={loginState.name}
+              onChange={handleInputChange}
+            />
+          </FormGroup>
+          <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
+            <Label htmlFor='email' className='mr-sm-2'>email</Label>
+            <Input
+              type='email'
+              name='email'
+              value={loginState.email}
+              onChange={handleInputChange}
+            />
+          </FormGroup>
+          <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
+            <Label htmlFor='username' className='mr-sm-2'>Username</Label>
+            <Input
+              type='text'
+              name='username'
+              value={loginState.username}
+              onChange={handleInputChange}
+            />
+          </FormGroup>
+          <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
+            <Label htmlFor='password' className='mr-sm-2'>Password</Label>
+            <Input
+              type='password'
+              name='password'
+              value={loginState.password}
+              onChange={handleInputChange}
+            />
+          </FormGroup>
+            <Col className="text-center">
+          <Button className="bttnM" onClick={handleRegister}>Register</Button>
+            </Col>
+        </Form>
+        </Col>
+      </Row>
     </>
   )
 }
