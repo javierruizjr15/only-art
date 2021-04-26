@@ -81,7 +81,7 @@ const Home = () => {
         <div className="row">
           {
             postState.posts
-              ? postState.posts.map(bingo => (
+              ? postState.posts.slice(0).reverse().map(bingo => (
 
 
                 <Col sm="4" row-cols-xl="3">
