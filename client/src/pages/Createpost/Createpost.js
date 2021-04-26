@@ -88,13 +88,13 @@ const Createpost = () => {
   // }, [])
   return (
     <>
-      <h1 className="text-center">Create A Post</h1>
+      <h1 className="text-center">Create Art Post for Sale</h1>
       {/* <Artcard /> */}
-      <Container className="formB">
-        <Form onSubmit={(event) => handleUpload(event)}>
-          <Col className="rowDiv" sm={10}>
-            <FormGroup Row>
-              <Label htmlFor='title' className='mr-sm-2'>Title</Label>
+      <Container sm="12" md={{ size: 6, offset: 3 }} className="formB" fluid="lg">
+      <Form onSubmit={(event) => handleUpload(event)}>
+        <Col  className="rowDiv" sm={10}>
+          <FormGroup Row>
+            <Label htmlFor='artistName' className='mr-sm-2'>Title</Label>
               <Input
                 type='text'
                 name='title'
@@ -105,7 +105,7 @@ const Createpost = () => {
           </Col>
           <Col className="rowDiv" sm={10}>
             <FormGroup Row>
-              <Label htmlFor='body' className='mr-sm-2'>Body</Label>
+              <Label htmlFor='body' className='mr-sm-2'>Description</Label>
               <Input
                 type='textarea'
                 name='body'

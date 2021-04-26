@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 import {
   Card, CardText, CardBody,
-  CardTitle, CardSubtitle, CardImg, Button, Container
+  CardTitle, CardSubtitle, CardImg, Button, Container, Col, Row
 } from 'reactstrap'
 import Post from '../../utils/Post'
 import User from '../../utils/User'
@@ -47,34 +47,52 @@ const Home = () => {
 
       .catch(err => {
         console.error(err)
+        window.location = '../login'
       })
   }, [])
+
+  
+  let postLength = postState.posts.length
+
+  let ranPost = postState.posts[Math.floor(Math.random() * postState.posts.length)]
+  
+  for (let i = 0; i < postLength; i++) {
+  
+      console.log(postState.posts[Math.floor(Math.random() * postState.posts.length)])
+  
+    // console.log(ranPost)
+  }
+
+  
+
+  
+
   return (
     <>
+      
       <h1 className="text-center">Art Only</h1>
       <h2 className="text-center">Shop</h2>
-      <Container fluid={true}>
+      <Container fluid="lg">
         <div className="row">
           {
             postState.posts
-              ? postState.posts.map(post => (
+              ? postState.posts.map(bingo => (
 
 
-                <div className="col-sm-4 ">
-                  <Card className="cardartS" key={post._id}>
-                    <CardImg className="photo" src={post.image} alt="Card image cap" />
+                <Col sm="4" row-cols-xl="3">
+                  <Card className="cardartS" key={bingo._id}>
+                    <CardImg className="photo" src={bingo.image} alt="Card image cap" />
                     <CardBody>
-                      <CardTitle className="font-weight-bold" tag='h5'>Title: {post.title}</CardTitle>
-                      <CardText>Description: {post.body}</CardText>
-                      <CardText>Price: ${post.price}</CardText>
-                      <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {post.artistName}</CardSubtitle>
-                      {/* <Button className="bttnM">Buy Now</Button> */}
+                      <CardTitle className="font-weight-bold" tag='h5'>Title: {bingo.title}</CardTitle>
+                      <CardText>Description: {bingo.body}</CardText>
+                      <CardText>Price: ${bingo.price}</CardText>
+                      <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {bingo.artistName}</CardSubtitle>
+
                       <Button className="bttnM">Buy Now</Button>
                     </CardBody>
-
                   </Card>
-                </div>
-
+                </Col>
+              // </Card>
 
               ))
               : null

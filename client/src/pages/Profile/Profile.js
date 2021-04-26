@@ -34,10 +34,11 @@ const Profile = () => {
   return (
     <>
       {/* Rendering your profile info from mongodb */}
-      <h1 className="text-center">Your Info</h1>
+      <h1 className="text-center">Profile</h1>
       <Row>
         <Col sm="4" md={{ offset: 4 }}>
-          <Card className="text-center cardinfoS">
+          
+        <Card className="text-center cardinfoS">
         <CardBody>
           <CardTitle tag='h5'>{profileState.user.name}</CardTitle>
           <CardSubtitle tag='h6' className='mb-2'>{profileState.user.email}</CardSubtitle>
@@ -50,14 +51,14 @@ const Profile = () => {
 
       {/* Rendering posts from mongodb */}
       <h1 className="text-center">Your Posts</h1>
-      <Container  fluid={true}>
+      <Container  fluid="lg">
         <div className="row">
           {
             profileState.user.posts
               ? profileState.user.posts.map(post => (
 
-
-                <div className="col-sm-4 ">
+                
+                <Col sm="4" row-cols-xl="3">
                   <Card className="cardartS" key={post._id}>
                     <CardImg className="photo" src={post.image} alt="Card image cap" />
                     <CardBody>
@@ -70,7 +71,7 @@ const Profile = () => {
                     </CardBody>
 
                   </Card>
-                </div>
+                </Col>
 
 
               ))
