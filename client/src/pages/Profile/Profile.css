@@ -25,6 +25,8 @@
 
 .bttnM {
   margin-right: 7px;
+  margin-top: 5px!important;
+  margin-bottom: 5px!important;
   background-color: lightblue!important;
   color: black!important;
 }

@@ -72,15 +72,20 @@ const Home = () => {
       
       <h1 className="text-center">Art Only</h1>
       <h2 className="text-center">Shop</h2>
-      <Container fluid="lg">
+
+      <Container row-cols-xl="3" className="text-center" fluid="lg" >
+        <hr />
+      </Container>
+
+      <Container className="text-center" fluid="lg">
         <div className="row">
           {
             postState.posts
-              ? postState.posts.map(bingo => (
+              ? postState.posts.slice(0).reverse().map(bingo => (
 
 
                 <Col sm="4" row-cols-xl="3">
-                  <Card className="cardartS" key={bingo._id}>
+                  <Card className="cardartS border border-secondary" key={bingo._id}>
                     <CardImg className="photo" src={bingo.image} alt="Card image cap" />
                     <CardBody>
                       <CardTitle className="font-weight-bold" tag='h5'>Title: {bingo.title}</CardTitle>

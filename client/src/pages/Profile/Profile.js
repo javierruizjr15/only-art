@@ -51,7 +51,7 @@ const Profile = () => {
 
       {/* Rendering posts from mongodb */}
       <h1 className="text-center">Your Posts</h1>
-      <Container  fluid="lg">
+      <Container className="text-center"  fluid="lg">
         <div className="row">
           {
             profileState.user.posts
@@ -59,7 +59,7 @@ const Profile = () => {
 
                 
                 <Col sm="4" row-cols-xl="3">
-                  <Card className="cardartS" key={post._id}>
+                  <Card className="cardartS border border-secondary" key={post._id}>
                     <CardImg className="photo" src={post.image} alt="Card image cap" />
                     <CardBody>
                       <CardTitle className="font-weight-bold" tag='h5'>Title: {post.title}</CardTitle>
