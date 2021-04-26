@@ -7,10 +7,12 @@ const Post = {
     }
   }),
 
-  create: post=>axios.post('/api/posts',post,{
+  create: post => axios.post('/api/posts',post,{
     headers:{
       Authorization: `Bearer ${localStorage.getItem('user')}`
     }
+
+      
   }),
 
   delete: id => axios.delete(`/api/post/${id}`,{
