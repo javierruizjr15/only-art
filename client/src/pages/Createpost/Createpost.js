@@ -10,6 +10,11 @@ import Post from '../../utils/Post'
 import { storage } from "../../utils/firebase"
 import User from '../../utils/User'
 import "./Createpost.css"
+
+
+
+
+
 const Createpost = () => {
   const [postState, setPostState] = useState({
     artistName: '',
