@@ -1,0 +1,3 @@
+module.exports = {
+  StripeAPIKey: 'sk_test_51IjufNBEoBtnEP6yv6Lvi9ciReEDFBchBTaSbeXCvhPNYTCeS07IDOQrHbYlSLgyx46aIMSYBpxxBqmemLMCMkW900rHvkxq8p'
+}

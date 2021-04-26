@@ -1,6 +1,10 @@
 const router = require('express').Router()
 const { Order, Cart, Post } = require('../models')
 const passport = require('passport')
+const mailgun = require('mailgun-js')
+const taxConfig = require('../config/tax')
+const stripeConfig = require('../config/stripe')
+const stripe = require('stripe')
 
 router.post('/add', passport.authenticate('jwt'), async (req, res) => {
   try {
@@ -172,7 +176,7 @@ router.put('/cancel/item/:itemId', passport.authenticate('jwt'), async (req, res
     const cartId = req.body.cartId;
 
     const foundCart = await Cart.findOne({ 'Posts._id': itemId });
-    const foundCartPost = foundCart.Posts.find(p => p._id == itemId);
+    const foundCartPost = foundCart.Posts.find(p => p._id === itemId);
 
     await Cart.updateOne(
       { 'Posts._id': itemId },
