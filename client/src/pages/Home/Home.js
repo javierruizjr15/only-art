@@ -96,7 +96,7 @@ const Home = () => {
                       <CardTitle className="font-weight-bold" tag='h5'>Title: {bingo.title}</CardTitle>
                       <CardText>Description: {bingo.body}</CardText>
                       <CardText>Price: ${bingo.price}</CardText>                   
-                      <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {bingo.artistName}</CardSubtitle>
+                      {/* <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {bingo.artistName}</CardSubtitle> */}
                       <CardText>Contact Email: {bingo.email}</CardText>
 
                       <div>
