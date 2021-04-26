@@ -43,7 +43,7 @@ const AppBar = () => {
             !isLoggedIn &&
             <NavItem>
               <Link to='/login' className='link'>
-                <NavLink>Register/Login</NavLink>
+                <NavLink>Welcome</NavLink>
               </Link>
             </NavItem>
           }
