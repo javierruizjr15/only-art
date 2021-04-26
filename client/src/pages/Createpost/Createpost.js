@@ -90,9 +90,9 @@ const Createpost = () => {
     <>
       <h1 className="text-center">Create Art Post for Sale</h1>
       {/* <Artcard /> */}
-      <Container className="formB">
+      <Container sm="12" md={{ size: 6, offset: 3 }} className="formB" fluid="lg">
       <Form onSubmit={(event) => handleUpload(event)}>
-        <Col className="rowDiv" sm={10}>
+        <Col  className="rowDiv" sm={10}>
           <FormGroup Row>
             <Label htmlFor='artistName' className='mr-sm-2'>Title</Label>
               <Input

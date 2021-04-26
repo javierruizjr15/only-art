@@ -46,7 +46,7 @@ const Login = () => {
         window.location = '/'
       })
       .catch(err => console.error(err))
-        alert(`Sorry ${loginState.un}, but that is not the correct password`)
+      
   }
 
   return (

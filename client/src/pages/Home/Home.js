@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 import {
   Card, CardText, CardBody,
-  CardTitle, CardSubtitle, CardImg, Button, Container, Col
+  CardTitle, CardSubtitle, CardImg, Button, Container, Col, Row
 } from 'reactstrap'
 import Post from '../../utils/Post'
 import User from '../../utils/User'
@@ -72,14 +72,14 @@ const Home = () => {
       
       <h1 className="text-center">Art Only</h1>
       <h2 className="text-center">Shop</h2>
-      <Container fluid={true}>
+      <Container fluid="lg">
         <div className="row">
           {
             postState.posts
               ? postState.posts.map(bingo => (
 
 
-                <Col sm="4" xl="3">
+                <Col sm="4" row-cols-xl="3">
                   <Card className="cardartS" key={bingo._id}>
                     <CardImg className="photo" src={bingo.image} alt="Card image cap" />
                     <CardBody>
@@ -87,13 +87,12 @@ const Home = () => {
                       <CardText>Description: {bingo.body}</CardText>
                       <CardText>Price: ${bingo.price}</CardText>
                       <CardSubtitle tag='h6' className='mb-2 text-muted'>Artist: {bingo.artistName}</CardSubtitle>
-                      {/* <Button className="bttnM">Buy Now</Button> */}
+
                       <Button className="bttnM">Buy Now</Button>
                     </CardBody>
-
                   </Card>
                 </Col>
-
+              // </Card>
 
               ))
               : null

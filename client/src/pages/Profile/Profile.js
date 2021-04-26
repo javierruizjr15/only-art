@@ -51,14 +51,14 @@ const Profile = () => {
 
       {/* Rendering posts from mongodb */}
       <h1 className="text-center">Your Posts</h1>
-      <Container  fluid={true}>
+      <Container  fluid="lg">
         <div className="row">
           {
             profileState.user.posts
               ? profileState.user.posts.map(post => (
 
-
-                <Col sm="4" xl="3">
+                
+                <Col sm="4" row-cols-xl="3">
                   <Card className="cardartS" key={post._id}>
                     <CardImg className="photo" src={post.image} alt="Card image cap" />
                     <CardBody>
