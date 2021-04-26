@@ -100,7 +100,7 @@ const Login = () => {
             />
           </FormGroup>
           <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
-            <Label htmlFor='email' className='mr-sm-2'>email</Label>
+            <Label htmlFor='email' className='mr-sm-2'>Email</Label>
             <Input
               type='email'
               name='email'
