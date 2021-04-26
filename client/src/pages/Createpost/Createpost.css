@@ -1,6 +1,6 @@
 .formB {
   border-width: 0.5;
-  background-color: rgba(173, 216, 230, 0.178);
+  background-color: rgba(173, 216, 230, 0.178)!important;
   border: 1px solid black;
 }
 

@@ -90,7 +90,7 @@ const Home = () => {
 
 
                 <Col sm="4" row-cols-xl="3">
-                  <Card className="cardartS border border-secondary" key={bingo._id}>
+                  <Card className="cardartS border border-secondary formB" key={bingo._id}>
                     <CardImg className="photo" src={bingo.image} alt="Card image cap" />
                     <CardBody>
                       <CardTitle className="font-weight-bold" tag='h5'>Title: {bingo.title}</CardTitle>
