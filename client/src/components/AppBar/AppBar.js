@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom'
 import User from '../../utils/User'
 import './AppBar.css'
 import onlyart from './onlyart.png'
+import { CartIcon } from '../icons'
 
 const AppBar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -67,6 +68,9 @@ const AppBar = () => {
               </NavItem>
               <NavItem>
                 <NavLink color="black" onClick={handleLogOut}>Log Out</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink color='black' to='/cart' className='cart'> <CartIcon/> Cart </NavLink>
               </NavItem>
             </>
           }
